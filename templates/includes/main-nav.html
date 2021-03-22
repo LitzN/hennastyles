@@ -1,0 +1,47 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a class="logo-font nav-link text-black mr-5 prod-links" href="#" id="all-products-link" data-toggle="dropdown">
+                All Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="stencils" data-toggle="dropdown">
+                Stencils
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="stencils">
+                <a href="{% url 'products' %}?category=luxe_packs" class="dropdown-item">Luxe packs</a>
+                <a href="{% url 'products' %}?category=mini_packs" class="dropdown-item">Mini packs</a>
+                <a href="{% url 'products' %}?category=hand_feet" class="dropdown-item">Hand and Feet</a>
+                <a href="{% url 'products' %}?category=eyebrow" class="dropdown-item">Eyebrow</a>
+                <a href="{% url 'products' %}?category=eyebrow,hand_feet,mini_packs,luxe_packs" class="dropdown-item">All Stencils</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="tools" data-toggle="dropdown">
+                Tools
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="tools">
+                <a href="{% url 'products' %}?category=stamps" class="dropdown-item">Stamps</a>
+                <a href="{% url 'products' %}?category=precision_tools" class="dropdown-item">Precision tools</a>
+                <a href="{% url 'products' %}?category=eyebrow_tools" class="dropdown-item">Eyebrow tools</a>
+                <a href="{% url 'products' %}?category=stamps,precision_tools,eyebrow_tools" class="dropdown-item">All tools</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="henna" data-toggle="dropdown">
+                Henna
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="henna">
+                <a href="{% url 'products' %}?category=cones" class="dropdown-item">Cones</a>
+                <a href="{% url 'products' %}?category=powder" class="dropdown-item">Powders</a>
+                <a href="{% url 'products' %}?category=cones,powder" class="dropdown-item"> All Henna</a>
+            </div>
+        </li>
+    </ul>
+</div>
