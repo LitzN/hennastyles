@@ -1,0 +1,8 @@
+.btn:focus{
+    box-shadow:none !important;
+}
+
+.post-link{
+    color:gray;
+    text-decoration: underline;
+}

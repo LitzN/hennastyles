@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css%}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="buffer"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <p class="welcome logo-font pink text-center mt-5">Profile</p>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text-center welcome-text"><strong>Default Delivery Information</strong></p>
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn float-right border-black pink-button mb-5"> <strong>Update Information <i class="fas fa-edit pink"></i></strong></button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="pink-border">
+                <a class="btn w-100" data-toggle="collapse" href="#order-history" role="button" aria-expanded="false" aria-controls="order-history">
+                    <p class="text-center mt-2 float-left welcome-text"><strong>Order History</strong></p><i class="fas fa-caret-down pink float-right fa-lg mt-3 mr-3"></i>
+                </a>
+                <div id="order-history" class="p-3 collapse">
+                    <div class="order-history table-responsive">
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Order Number</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Order Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="pink">
+                                                {{ order.order_number|truncatechars:6 }}
+                                            </a>
+                                        </td>
+                                        <td> {{ order.date }}</td>
+                                        <td>
+                                            <ul class="list-unstyled">
+                                                {% for item in order.lineitems.all %}
+                                                    <li class="small">
+                                                        {% if item.product.has_colours %} Colour:{{ item.product.colour }}{% endif %}
+                                                        {{ item.product.name }} x {{ item.quantity }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                        <td> ${{ order.grand_total }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="pink-border mt-4">
+                <a class="btn w-100" data-toggle="collapse" href="#liked-posts" role="button" aria-expanded="false" aria-controls="liked-posts">
+                    <p class="text-center mt-2 float-left welcome-text"><strong>Liked Posts</strong></p><i class="fas fa-caret-down pink float-right fa-lg mt-3 mr-3"></i>
+                </a>
+                <div id="liked-posts" class="collapse text-center p-2 mb-2">
+                    {% if liked_posts %}
+                        {% for liked in liked_posts %}
+                            <div class="row">
+                                <div class="col-8">
+                                    <a href="{% url 'post_detail' liked.post.id %}" class="p-2 post-link">{{ liked.post.heading }}</a>
+                                </div>
+                                <div class="col-4">
+                                    <form action="{% url 'like' liked.post.id %}" method="POST" id="like">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="user" value="{{ liked.user.id }}">
+                                    <input type="hidden" name="post" value="{{ liked.post.id }}">
+                                    <button class="btn btn-default" type="submit">
+                                        <strong class="pink"><i class="fas fa-times pink"></i></strong></button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                    <p> You have no liked posts yet! <br><a class="pink" href="{% url 'view_posts' %}">View all</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="pattern-border border-bottom"></div>
+    </div>
+</div>
+
+    
+{% endblock %}

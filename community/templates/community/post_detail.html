@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="product-buffer"></div>
+    <!--BORDER IMAGE.......................-->
+    <div class="row">
+        <div class="col-12">
+            <div class="pattern-border border-top"></div>
+        </div>
+    </div>
+    <!--POST HEADING.......................-->
+    <div class="row">
+        <div class="col-8 offset-2 post-heading">
+            <h2 class="text-center my-5 logo-font pink">{{ post.heading }}</h2>
+        </div>
+    </div>
+    <!--POST IMAGE AND TEXT.......................-->
+    <div class="row">
+        <div class="col-8 offset-2 post-main">
+            {% if post.image %}
+                <img class="img-responsive post-img float-left mr-4 mb-3" src="{{ post.image.url }}" alt="Card image cap">
+            {% endif %}
+            <p class="post-text">{{ post.body }}</p>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <p class="float-left text-muted">Created by: <i>{{ post.user_profile }}</i></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="">
+                    {% if request.user.is_authenticated %}
+                        <form class="mt-3" action="{% url 'like' post.id %}" method="POST" id="like">
+                            {% csrf_token %}
+                            <input type="hidden" name="user" value="{{ user.id }}">
+                            <input type="hidden" name="post" value="{{ post.id }}">
+                            <button class="btn btn-default" type="submit">
+                                <strong class="pink"><i class="fas fa-thumbs-up pink"></i> Like/Unlike<br> {{ like_count }} </strong></button>
+                        </form>
+                        
+                        {% else %}
+                        <i class="fas fa-thumbs-up pink"></i><p class="pink"><strong>{{ like_count }}</strong></p>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="">
+                        {% if request.user.is_authenticated %}
+                        <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
+                            <strong class="pink"><i class="fas fa-comment pink"></i> Comments<br> {{ comment_count }}</strong></button>
+                        {% else %}
+                        <i class="fas fa-comment pink"></i><p class="pink"><strong> Comment {{ comment_count }}</strong></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--COMMENTS.......................-->
+    <div class="row">
+        <div class="col-8 offset-2">
+            {% for comment in comments %}
+                {% if post.id == comment.for_post.id %}
+                <div class="row comment w-100 {% if comment.user_profile.user.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
+                    <div class="col-3">
+                        <p class="small p-0 pt-4 white"><i class="fas fa-user white fa-lg"></i><br>
+                        {{ comment.user_profile }}</p>
+                    </div>
+                    <div class="col-9 comment-body">
+                        <p>{{ comment.body }}</p>
+                        {% if user == comment.user_profile or user.user.is_superuser %}
+                        <a  class="btn-sm small float-right text-danger btn" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                            <button class="btn btn-sm small text-info float-right" type="button" data-toggle="collapse" data-target="#collapse{{ comment.id }}" aria-expanded="false" aria-controls="collapseExample">
+                            Edit
+                        </button>
+                        <!--EDIT COMMENT FORM.......................-->
+                        <div class="collapse" id="collapse{{ comment.id }}">
+                            <div class="card card-body">
+                                <form class="mt-3" action="{% url 'edit_comment' comment.id %}" method="POST" id="edit_comment">
+                                    {% csrf_token %}
+                                    <label for="body">Edit Comment:</label><br>
+                                    <textarea class="edit-comment" type="text" name="body">{{ comment.body }}</textarea>
+                                    <input type="hidden" name="user_profile" value="{{ user.id }}">
+                                    <input type="hidden" name="for_post" value="{{ post.id }}">
+                                    <button class="btn btn-default border-black" type="submit">Post <i class="fas fa-comment pink"></i></button>
+                                </form>
+                            </div>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% endif %} 
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-2 pl-0">
+            <!--ADD COMMENT FORM.......................-->
+            {% if request.user.is_authenticated %}
+                <div class="collapse" id="collapseExample{{ post.id }}">
+                    <div class="card card-body">
+                        <form class="mt-3" action="{% url 'post_detail' post.id %}" method="POST" id="CommentForm">
+                            {% csrf_token %}
+                            <label for="body"><strong>Add Comment:</strong></label><br>
+                            <textarea class="edit-comment" type="text" name="body"></textarea>
+                            <input type="hidden" name="user_profile" value="{{ user.id }}">
+                            <input type="hidden" name="for_post" value="{{ post.id }}">
+                            <button class="btn btn-default border-black float-right" type="submit">Post <i class="fas fa-comment pink"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn pink pink-button border-black mt-4 mb-4 float-right" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
+                   Add Comment <i class="fas fa-plus"></i>
+                </button>
+            {% endif %}
+        </div>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="pattern-border border-bottom mt-3"></div>
+    </div>
+</div>
+{% endblock %}
