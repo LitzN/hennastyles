@@ -1,0 +1,242 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "name": "Traditional mini stencil pack",
+      "description": "Four sheets of traditional style henna elements. Sheets are durable and can be used multiple times.",
+      "price": 3.99,
+      "category": 1,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81fzGjdErvL._AC_SX679_.jpg",
+      "image": "traditional-mini-stencil-pack.png"
+    }
+  },
+      {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "name": "Foot design pack",
+      "description": "Six sheets of traditional style henna elements. Stencils designed to fit pattern nicely on feet.",
+      "price": 9.99,
+      "category": 3,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61rfA62DcvL._AC_.jpg",
+      "image": "foot-design-pack.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "name": "Stencil luxe pack",
+      "description": "Sixteen sheets of traditional style henna designs. Includes 10 stencil sheets with multiple elements and 6 hand stencil sheets ",
+      "price": 16.99,
+      "category": 2,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61GYSfR%2BawL._AC_.jpg",
+      "image": "stencil-luxe-pack.png"
+    }
+  },
+    {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "name": "Floral mini stencil pack",
+      "description": "Three sheets of floral style henna elements. Sheets are durable and can be used multiple times.",
+      "price": 3.99,
+      "category": 1,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81M1Kxms6qL._AC_SX679_.jpg",
+      "image": "floral-mini-stencil-pack.png"
+    }
+  },
+      {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "name": "Luxe hand stencil pack",
+      "description": "Six sheets of assorted style henna elements. Contains 4 sheets of traditional element stencils and 2 full hand stencils.",
+      "price": 9.99,
+      "category": 3,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61DCceOgJ6L._AC_.jpg",
+      "image": "luxe-hand-stencil-pack.jpg"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "name": "Mini hand design pack",
+      "description": "Three design sheets with elegant untraditional elements designed for hands.",
+      "price": 4.99,
+      "category": 3,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/719n9ojwlTL._AC_SL1000_.jpg",
+      "image": "mini-hand-design-pack.png"
+    }
+  },
+        {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "name": "Luxe assorted style pack",
+      "description": "10 sheets of assorted style henna elements.",
+      "price": 9.99,
+      "category": 2,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/819%2Bh49pkaL._AC_SX450_.jpg",
+      "image": "stencil-standard-pack.png"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "name": "Eyebrow stencils",
+      "description": "24 shapes of eyebrow stencils for henna brows. These reusable stencils produce flawless temporary brows.",
+      "price": 14.99,
+      "category": 4,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/719gm2aIj1L._AC_SX425_.jpg",
+      "image": "eyebrow-stencils.png"
+    }
+  },
+          {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "name": "Mini henna stamps",
+      "description": "6 mini rubber and wood henna stamps. High quality material, long lasting elegant designs.",
+      "price": 9.99,
+      "category": 5,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61v38YqqEgL._AC_SX522_.jpg",
+      "image": "mini-henna-stamps.png"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "name": "Royal Kraft Mandala Henna Stamps",
+      "description": "5 large wooden henna stamps, mandala designs by Royal Kraft.",
+      "price": 14.99,
+      "category": 5,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81ir3vJzhxL._AC_SX522_.jpg",
+      "image": "mandala-henna-stamps.png"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.product",
+    "fields": {
+      "name": "Royal Kraft bracelet/border henna stamps",
+      "description": "10 large wooden henna stamps for bracelet or border design. Product by Royal Kraft.",
+      "price": 24.99,
+      "category": 5,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81HmStqVAhL._AC_SY450_.jpg",
+      "image": "bracelet-border-henna-stamps.png"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.product",
+    "fields": {
+      "name": "Pre-inked mapping thread",
+      "description": "Roll of pre-inked thread for freehand Henna brow mapping",
+      "price": 4.99,
+      "category": 6,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/51jMUoPAx9L._AC_SY450_.jpg",
+      "image": "pre-inked-mapping-thread.png"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.product",
+    "fields": {
+      "name": "5 pre rolled Empty Cones",
+      "description": "5 empty pre-rolled cones for home mix henna",
+      "price": 1.99,
+      "category": 7,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/41cbcCbrpuL._AC_.jpg",
+      "image": "empty-cones.png"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.product",
+    "fields": {
+      "name": "Microdesign kit",
+      "description": "Intricate designs are in reach, this kit contains 16 precision tips and 2 bottles.",
+      "price": 24.99,
+      "category": 7,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61TY%2BjmcmxL._AC_SX522_.jpg",
+      "image": "microdesign-kit.png"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.product",
+    "fields": {
+      "name": "New Fashion House Cones (3)",
+      "description": "Three henna cones filled with organic henna. From popular brand, New fashion house.",
+      "price": 2.99,
+      "category": 8,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61pYfHFMRiL._AC_SY355_.jpg",
+      "image": "new-fashion-house-cones-3-pack.png"
+    }
+  },
+   {
+    "pk": 16,
+    "model": "products.product",
+    "fields": {
+      "name": "New Fashion House Cones (12)",
+      "description": "Twelve henna cones filled with organic henna. From popular brand, New fashion house.",
+      "price": 9.99,
+      "category": 8,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/71PWlEyB6wL._AC_SY450_.jpg",
+      "image": "new-fashion-house-cones-12-pack.png"
+    }
+  },
+   {
+    "pk": 17,
+    "model": "products.product",
+    "fields": {
+      "name": "Kalveri Cones (12)",
+      "description": "12 Organic henna cones from popular Kalveri Brand.",
+      "price": 9.99,
+      "category": 8,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/71kkKvxw5BL._AC_SY450_.jpg",
+      "image": "kalveri-cones-12-pack.png"
+    }
+  },
+   {
+    "pk": 18,
+    "model": "products.product",
+    "fields": {
+      "name": "Mixed colour cones (9)",
+      "description": "Body art cones include these colours: Black, White, Orange , Magenta, Blue, Purple, Red, Green, Brown ",
+      "price": 12.99,
+      "category": 8,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/618BS8DunJL._AC_SX679_.jpg",
+      "image": "mixed-colour-cones-9-pack.png"
+    }
+  },
+    {
+    "pk": 19,
+    "model": "products.product",
+    "fields": {
+      "name": "Yogi's gift: Organic henna powder for hair 250g",
+      "description": "Organic 100% natural henna powder produced in India. Only for use on hair.",
+      "price": 14.99,
+      "category": 9,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/61vOjrDLMnL._AC_SY879_.jpg",
+      "image": "henna-powder-for-hair.png"
+    }
+  },
+   {
+    "pk": 20,
+    "model": "products.product",
+    "fields": {
+      "name": "Evena: Organic henna powder for body art",
+      "description": "Evena brand organic henna powder in two colours, for use on skin.",
+      "price": 14.99,
+      "category": 9,
+      "image_url": "https://images-na.ssl-images-amazon.com/images/I/81j6uy3tZ9L._AC_SX450_.jpg",
+      "image": "henna-powder-for-skin.png"
+    }
+  }
+]

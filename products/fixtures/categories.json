@@ -1,0 +1,74 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "mini_packs",
+      "friendly_name": "Mini Packs"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "luxe_packs",
+      "friendly_name": "Luxe Packs"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "hands_feet",
+      "friendly_name": "Hands & Feet"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "eyebrow",
+      "friendly_name": "Eyebrow"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+      "name": "stamps",
+      "friendly_name": "Stamps"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": {
+      "name": "eyebrow_tools",
+      "friendly_name": "Eyebrow Tools"
+    }
+  },
+    {
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+      "name": "precision_tools",
+      "friendly_name": "Precision Tools"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.category",
+    "fields": {
+      "name": "cones",
+      "friendly_name": "Cones"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.category",
+    "fields": {
+      "name": "powder",
+      "friendly_name": "Powder"
+    }
+  }
+]
