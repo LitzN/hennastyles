@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="">
+                    <div class="mt-3">
                         {% if request.user.is_authenticated %}
                         <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
                             <strong class="pink"><i class="fas fa-comment pink"></i> Comments<br> {{ comment_count }}</strong></button>
@@ -113,10 +113,20 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn pink pink-button border-black mt-4 mb-4 float-right" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
-                   Add Comment <i class="fas fa-plus"></i>
+                <button class="btn pink-button border-black font-weight-bold mt-4 mb-4 float-right" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
+                   Add Comment <i class="fas fa-plus pink"></i>
                 </button>
             {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+            <a href="{% url 'view_posts' %}" class="btn pink-button border-black font-weight-bold float-left">
+                <span class="icon mr-3">
+                    <i class="fas fa-caret-left pink"></i>
+                </span>
+                <span>All posts</span>
+            </a>
         </div>
     </div>
     <div class="row">

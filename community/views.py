@@ -24,6 +24,7 @@ def view_posts(request):
 
     for post in posts:
         post.likes = Like.objects.filter(post=post.id).count()
+        post.comments = Comment.objects.filter(for_post=post.id).count
 
     if request.GET:
         if 'q' in request.GET:
@@ -34,6 +35,9 @@ def view_posts(request):
                 return redirect(reverse('view_posts'))
             queries = Q(heading__icontains=query) | Q(body__icontains=query)
             posts = posts.filter(queries)
+            for post in posts:
+                post.likes = Like.objects.filter(post=post.id).count()
+                post.comments = Comment.objects.filter(for_post=post.id).count
 
     context = {
         'posts': posts,

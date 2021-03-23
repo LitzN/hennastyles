@@ -31,7 +31,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12 text-center">
-        <a class="pink pink-button btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"><strong>CREATE A POST</strong> <i class="fas fa-plus"></i></a>
+        <a class="pink-button btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"><strong>CREATE A POST</strong> <i class="fas fa-plus pink"></i></a>
         {% if "q=" in request.get_full_path %}
             <a class="pink-button btn btn-default border-black float-right mt-4 mb-5" href="{% url 'view_posts' %}"><strong> RESET SEARCH</strong></a>
         {% endif %}
@@ -56,10 +56,13 @@
                     <a class="small" href="{% url 'edit_post' post.id %}"> Edit </a>
                     {% endif %}
                 </h6>
-                <i class="fas fa-thumbs-up pink"></i><strong>{{ post.likes}}</strong>
+                <div class="mt-3">
+                    <span class="mr-3"><i class="fas fa-thumbs-up pink fa-lg"></i><strong> {{ post.likes }}</strong></span>
+                    <span class="ml-3"><i class="fas fa-comment pink fa-lg"></i><strong> {{ post.comments }}</strong></span>
+                </div>
                 <hr class="pink">
                  <p class="card-text">{{ post.body|truncatechars:250}}</p>
-                <a href="{% url 'post_detail' post.id %}" class="pink pink-button btn btn-default border-black">Read More <i class="fas fa-caret-right"></i></a>
+                <a href="{% url 'post_detail' post.id %}" class="pink-button btn btn-default border-black">Read More <i class="fas fa-caret-right pink ml-2"></i></a>
             </div>
         </div>
     </div>
