@@ -22,9 +22,14 @@
                         {{ field }}
                     {% endif %}
                 {% endfor %}
-                <div class="text-right">
-                    <a class="btn border-black" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn border-black" type="submit">Update Product</button>
+                <div class="text-right mb-5">
+                    <a class="btn border-black pink-button font-weight-bold mr-5 mb-2" href="{% url 'products' %}">
+                        <span class="icon mr-2"><i class="fas fa-caret-left pink"></i></span>
+                        <span>Cancel</span></a>
+                    <button class="btn border-black pink-button font-weight-bold" type="submit">
+                        <span>Update Product</span>
+                        <span class="icon mr-2"><i class="fas fa-check pink"></i></span>
+                    </button>
                 </div>
             </form>
         </div>

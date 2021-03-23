@@ -165,20 +165,20 @@
     <div class="row">
         <div class="col-8 offset-2 text-right my-5">
             {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn border-black my-2">
-                    <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
+                <a href="{% url 'profile' %}" class="btn border-black my-2 pink-button font-weight-bold">
+                    <span class="icon mr-2">  
+                        <i class="fas fa-angle-left pink"></i>
                     </span>
-                    <span>Back to Profile</span>
+                    <span> Back to Profile</span>
                 </a>
             {% else %}
-                <a href="{% url 'products' %}" class="btn border-black my-2 float-left">
-                    <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
+                <a href="{% url 'products' %}" class="btn border-black my-2 float-left font-weight-bold pink-button">
+                    <span class="icon mr-2">  
+                        <i class="pink fas fa-angle-left mr-2"></i>
                     </span>
-                    <span>Back to Shop</span>
+                    <span> Back to Shop</span>
                 </a>
-                <a href="{% url 'view_posts' %}" class="btn border-black my-2 float-right">
+                <a href="{% url 'view_posts' %}" class="btn border-black my-2 float-right font-weight-bold pink-button">
                     <span>Visit Community</span>
                     <span class="icon mr-2">
                         <i class="fas fa-angle-right"></i>

@@ -251,8 +251,16 @@ a.category-badge > span.badge:hover{
     text-align:justify;
 }
 
+.pink_button{
+    font-weight:bold
+}
+
 .pink-button:hover{
     background-color: #ffb6c1;
+    color:white;
+}
+
+.pink-button:hover i{
     color:white;
 }
 
