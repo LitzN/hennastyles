@@ -5,19 +5,19 @@
     <div class="product-buffer"></div>
     <!--BORDER IMAGE.......................-->
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 p-0">
             <div class="pattern-border border-top"></div>
         </div>
     </div>
     <!--POST HEADING.......................-->
     <div class="row">
-        <div class="col-8 offset-2 post-heading">
+        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 post-heading">
             <h2 class="text-center my-5 logo-font pink">{{ post.heading }}</h2>
         </div>
     </div>
     <!--POST IMAGE AND TEXT.......................-->
     <div class="row">
-        <div class="col-8 offset-2 post-main">
+        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 post-main">
             {% if post.image %}
                 <img class="img-responsive post-img float-left mr-4 mb-3" src="{{ post.image.url }}" alt="Card image cap">
             {% endif %}
@@ -60,10 +60,10 @@
 
     <!--COMMENTS.......................-->
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="offset-sm-1 col-sm-10 col-md-8 offset-md-2">
             {% for comment in comments %}
                 {% if post.id == comment.for_post.id %}
-                <div class="row comment w-100 {% if comment.user_profile.user.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
+                <div class="row comment {% if comment.user_profile.user.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
                     <div class="col-3">
                         <p class="small p-0 pt-4 white"><i class="fas fa-user white fa-lg"></i><br>
                         {{ comment.user_profile }}</p>
@@ -119,12 +119,11 @@
             {% endif %}
         </div>
     </div>
-    
-</div>
-
-<div class="row">
-    <div class="col-12">
-        <div class="pattern-border border-bottom mt-3"></div>
+    <div class="row">
+        <div class="col-12 p-0">
+            <div class="pattern-border border-bottom mt-3"></div>
+        </div>
     </div>
 </div>
+
 {% endblock %}
