@@ -146,8 +146,14 @@
 
     <footer>
     <div class="row bg-dark footer">
-        <div class="col-6"> <p class="text-light"> Register account</p></div>
-        <div class="col-6"><p class="text-light">social links</p></div>
+        <div class="col-6"> <a href="{% url 'account_login' %}" class="text-white ml-2 mt-2"> Register account</a></div>
+        <div class="col-6">
+            <div class="float-right mr-3">
+            <a href="https://en-gb.facebook.com/" target="_blank" class="mr-3"><i class="fab fa-facebook-square text-white fa-lg"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="mr-3"><i class="fab fa-instagram-square text-white fa-lg"></i></a>
+            <a href="https://twitter.com/?lang=en-gb" target="_blank"><i class="fab fa-twitter-square text-white fa-lg"></i></a>
+            </div>
+        </div>
     </div>
     </footer>
     {% block postloadjs %}

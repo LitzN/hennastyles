@@ -6,8 +6,8 @@
 
 {% block inner_content %}
 
-<div class="home-buffer"></div>
-<h1 class="logo-font pink">{% trans "Sign Out" %}</h1>
+<div class="product-buffer d-lg-none"></div>
+<h1 class="logo-font pink mb-4 mt-5">{% trans "Sign Out" %}</h1>
 <hr>
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
@@ -16,7 +16,7 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button type="submit" class="mt-2 mb-5 rounded">{% trans 'Sign Out' %}</button>
+  <button type="submit" class="mt-2 mb-5 pink pink-button btn btn-default border-black">{% trans 'Sign Out' %}</button>
 </form>
 
 
