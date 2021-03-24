@@ -389,7 +389,5 @@ a.category-badge > span.badge:hover{
         top: 70%;
         left: 50%;
   }
-  .product-buffer{
-        min-height:2rem;
-    }
+
 }
