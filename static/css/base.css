@@ -2,7 +2,7 @@
     max-height:416px;
     overflow-y: auto;
 }
-
+/*-------------GENERAL-----------------*/
 html{
     height:100%;
 }
@@ -10,50 +10,6 @@ html{
 body{
     height:calc(100vh - 164px);
     font-family: 'Montserrat', sans-serif;
-}
-
-.pink{
-    color:#ffb6c1;
-}
-
-.white{
-    color:#fff;
-}
-
-.pink-bg {
-    background-color:#ffb6c1;
-}
-
-
-.gray-bg{
-    background-color:#d6d7d7;
-}
-
-.dark-pink-bg{
-    background-color:#b27f87;
-}
-
-.comment{
-    border-top:#d6d7d7 solid 1px;
-    border-bottom:#d6d7d7 solid 1px;
-    border-right:#d6d7d7 solid 1px;
-    min-width:inherit;
-}
-
-.comment-body{
-    background-color:white;
-    font-size:0.75rem;
-    padding-top:1.5rem;
-}
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-    color:#ffb6c1;
 }
 
 .logo-font {
@@ -93,81 +49,15 @@ body{
     min-height:8vh;
 }
 
-/* Home page */ 
-
-.welcome{
-    font-size:5rem;
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    color:#ffb6c1;
 }
-
-.welcome-text{
-    font-size:1.2rem;
-}
-
-.home-img{
-    background: url('/media/henna-art.jpg') no-repeat center;
-    background-size:cover;
-    min-height:30vh;
-    min-width:100vw;
-}
-
-.nav-main-link{
-    font-size:0.5rem;
-}
-
-.nav-link{
-    padding:.5rem .5rem !important;
-}
-
-.prod-links{
-    font-size:x-large;
-}
-
-.button-shop{
-    background: url('/media/button-shop.png') no-repeat;
-    background-size:contain;
-    min-height:20rem;
-}
-
-.button-subscribe{
-    background: url('/media/button-sub.png') no-repeat;
-    background-size:contain;
-    min-height:20rem;
-}
-
-.button-text{
-    position: absolute;
-    top: 70%;
-    left: 45%;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    transform: translate(-50%, -50%);
-    color:black;
-}
-
-.button-text:hover{
-    color:pink;
-}
-
-/*
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-.btn-black {
-    background: black;
-    color: white;
-}
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
-*/
 
 .text-black {
     color: #000 !important;
@@ -185,21 +75,16 @@ body{
     min-height:10rem;
 }
 
-a.category-badge > span.badge:hover{
-    background: #000 !important;
-    color:#ffb6c1 !important;
+.nav-main-link{
+    font-size:0.5rem;
 }
 
-.btt-button{
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+.nav-link{
+    padding:.5rem .5rem !important;
 }
 
-.btt-link, .update-link, .remove-link{
-    cursor: pointer;
+.prod-links{
+    font-size:x-large;
 }
 
 .message-container{
@@ -223,6 +108,103 @@ a.category-badge > span.badge:hover{
     overflow-y:auto;
 }
 
+.pink_button{
+    font-weight:bold
+}
+
+.pink-button:hover{
+    background-color: #ffb6c1;
+    color:white;
+}
+
+.pink-button:hover i{
+    color:white;
+}
+
+/*---------Colour palette--------------*/
+.pink{
+    color:#ffb6c1;
+}
+
+.white{
+    color:#fff;
+}
+
+.pink-bg {
+    background-color:#ffb6c1;
+}
+
+.gray-bg{
+    background-color:#d6d7d7;
+}
+
+.dark-pink-bg{
+    background-color:#b27f87;
+}
+
+/* Home page */ 
+
+.welcome{
+    font-size:5rem;
+}
+
+.welcome-text{
+    font-size:1.2rem;
+}
+
+.home-img{
+    background: url('/media/henna-art.jpg') no-repeat center;
+    background-size:cover;
+    min-height:30vh;
+    min-width:100vw;
+}
+
+.button-shop{
+    background: url('/media/button-shop.png') no-repeat;
+    background-size:contain;
+    min-height:20rem;
+    position: relative;
+}
+
+.button-subscribe{
+    background: url('/media/button-sub.png') no-repeat;
+    background-size:contain;
+    min-height:20rem;
+}
+
+.button-text{
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    transform: translate(-50%, -50%);
+    color:black;
+}
+
+.button-text:hover{
+    color:pink;
+}
+
+/*---Product pages----*/
+
+a.category-badge > span.badge:hover{
+    background: #000 !important;
+    color:#ffb6c1 !important;
+}
+
+.btt-button{
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link, .update-link, .remove-link{
+    cursor: pointer;
+}
+
 .prod-img{
     max-height:12rem;
     max-width: 12rem;
@@ -237,6 +219,21 @@ a.category-badge > span.badge:hover{
     font-size:2rem;
 }
 
+/*------------Community---------------- */
+
+.comment{
+    border-top:#d6d7d7 solid 1px;
+    border-bottom:#d6d7d7 solid 1px;
+    border-right:#d6d7d7 solid 1px;
+    min-width:inherit;
+}
+
+.comment-body{
+    background-color:white;
+    font-size:0.75rem;
+    padding-top:1.5rem;
+}
+
 .edit-comment{
     overflow:scroll;
     min-width:80%;
@@ -249,19 +246,6 @@ a.category-badge > span.badge:hover{
 
 .post-text{
     text-align:justify;
-}
-
-.pink_button{
-    font-weight:bold
-}
-
-.pink-button:hover{
-    background-color: #ffb6c1;
-    color:white;
-}
-
-.pink-button:hover i{
-    color:white;
 }
 
 .pink-border{
@@ -301,7 +285,7 @@ a.category-badge > span.badge:hover{
 
 /* mobile styling*/
 /*------LARGE MOBILE------------*/
-@media (max-width:426px){
+@media screen and (max-width:426px){
     .buffer{
         min-height:6rem;
     }
@@ -321,16 +305,20 @@ a.category-badge > span.badge:hover{
     .button-text{
         left:40%;
     }
+
+    .prod-links{
+        font-size:medium;
+    }
 }
 
 /*------MED MOBILE----------------*/
-@media (max-width:376px){
+@media screen and (max-width:376px){
     .button-text{
         left:45%;
     }
 }
 /*------SMALL MOBILE------------*/
-@media (max-width:320px){
+@media screen and (max-width:320px){
     .button-text{
         top:65%;
         left:50%;
@@ -342,7 +330,7 @@ a.category-badge > span.badge:hover{
 }
 
 /*-----TABLET--------------*/
-@media (min-width: 768px){
+@media screen and (min-width: 768px){
     .button-text{
         top: 50%;
         left: 50%;
@@ -358,10 +346,14 @@ a.category-badge > span.badge:hover{
 
     .nav-main-link{
     font-size:1rem;
-}
+    }
+
+    .prod-links{
+        font-size:large;
+    }
 }
 /*-----LAPTOP---------------*/
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -389,7 +381,7 @@ a.category-badge > span.badge:hover{
 }
 
 /*-----XL SCREENS-----------*/
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
@@ -397,4 +389,7 @@ a.category-badge > span.badge:hover{
         top: 70%;
         left: 50%;
   }
+  .product-buffer{
+        min-height:2rem;
+    }
 }
