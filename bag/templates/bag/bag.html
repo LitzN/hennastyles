@@ -3,7 +3,7 @@
 {% load bag_tools %}
 
 {% block content %}
-<div class="buffer"></div>
+<div class="product-buffer"></div>
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1">
@@ -13,6 +13,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1">
+            <!-------Bag view for mobile-------------->
             {% if bag_items %}
             <div class="d-block d-md-none">
                 <div class="row">
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12">
                             <hr>
                         </div>
                     </div>
@@ -54,48 +55,49 @@
                     </a>
                 </div>
             </div>
-                <div class="table-responsive rounded d-none d-md-block">
-                    <table class="table table-sm table-borderless">
-                        <thead class="text-black">
-                            <tr>
-                                <th scope="col">Product Info</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-                        {% for item in bag_items %}
-                            <tr>
-                                <td class="p-3 w-25">
-                                    {% include "bag/product-image.html" %}
-                                </td>
-                                <td class="py-3">
-                                    {% include "bag/product-info.html" %}
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">${{ item.product.price }}</p>
-                                </td>
-                                <td class="py-3 w-25">
-                                    {% include "bag/quantity-form.html" %}
-                                </td>
-                                <td class="py-3">
-                                    <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    {% include "bag/bag-total.html" %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    {% include "bag/checkout-buttons.html" %}
-                                </td>
-                            </tr>
-                    </table>
-                </div>
+            <!-------Bag view for tablet and up -------------->
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                        <tr>
+                            <td class="p-3 w-25">
+                                {% include "bag/product-image.html" %}
+                            </td>
+                            <td class="py-3">
+                                {% include "bag/product-info.html" %}
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">${{ item.product.price }}</p>
+                            </td>
+                            <td class="py-3 w-25">
+                                {% include "bag/quantity-form.html" %}
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                {% include "bag/bag-total.html" %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-right">
+                                {% include "bag/checkout-buttons.html" %}
+                            </td>
+                        </tr>
+                </table>
+            </div>
             {% else %}
                 <p class="lead mb-5">Your bag is empty!</p>
                 <a href="{% url 'products' %}" class="btn btn-lg rounded">

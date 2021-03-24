@@ -24,7 +24,8 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if colour in bag[item_id]['items_by_colour'].keys():
                 bag[item_id]['items_by_colour'][colour] += quantity
-                messages.success(request, f'Updated {colour} {product.name} quantity of your bag!')
+                messages.success(request, f'Updated {colour} {product.name} \
+                    quantity of your bag!')
             else:
                 bag[item_id]['items_by_colour'][colour] = quantity
                 messages.success(request, f'Added {colour}-{product.name} \
@@ -59,7 +60,8 @@ def adjust_bag(request, item_id):
     if colour:
         if quantity > 0:
             bag[item_id]['items_by_colour'][colour] = quantity
-            messages.success(request, f'Updated {colour} {product.name} quantity of your bag!')
+            messages.success(request, f'Updated {colour} {product.name} \
+                quantity of your bag!')
         else:
             del bag[item_id]['items_by_colour'][colour]
             if not bag[item_id]['items_by_colour']:
