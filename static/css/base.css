@@ -309,6 +309,10 @@ a.category-badge > span.badge:hover{
     .prod-links{
         font-size:medium;
     }
+
+    .post-img{
+        max-width:inherit;
+    }
 }
 
 /*------MED MOBILE----------------*/

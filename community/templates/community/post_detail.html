@@ -18,18 +18,28 @@
     <!--POST IMAGE AND TEXT.......................-->
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 post-main">
-            {% if post.image %}
-                <img class="img-responsive post-img float-left mr-4 mb-3" src="{{ post.image.url }}" alt="Card image cap">
-            {% endif %}
-            <p class="post-text">{{ post.body }}</p>
+            <div class="row ">
+                <div class="col">
+                {% if post.image %}
+                    <img class="post-img float-left mr-4 mb-3" src="{{ post.image.url }}" alt="Card image cap">
+                {% endif %}
+                <p class="post-text d-none d-md-block">{{ post.body }}</p>
+                </div>
+            </div>
+            <div class="row d-sm-block d-md-none">
+                <div class="col">
+                    <p class="post-text">{{ post.body }}</p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-8 offset-2">
                     <p class="float-left text-muted">Created by: <i>{{ post.user_profile }}</i></p>
                 </div>
             </div>
+            <!--.......................LIKE/COMMENT------------------>
             <div class="row">
                 <div class="col-6">
-                    <div class="">
+                    <div class="text-center">
                     {% if request.user.is_authenticated %}
                         <form class="mt-3" action="{% url 'like' post.id %}" method="POST" id="like">
                             {% csrf_token %}
@@ -44,7 +54,7 @@
                     {% endif %}
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 text-center">
                     <div class="mt-3">
                         {% if request.user.is_authenticated %}
                         <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
@@ -98,7 +108,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-8 offset-2 pl-0">
+        <div class="col-8 offset-2 pl-0 text-center">
             <!--ADD COMMENT FORM.......................-->
             {% if request.user.is_authenticated %}
                 <div class="collapse" id="collapseExample{{ post.id }}">
@@ -113,7 +123,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn pink-button border-black font-weight-bold mt-4 mb-4 float-right" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn pink-button border-black font-weight-bold mt-4 mb-4" type="button" data-toggle="collapse" data-target="#collapseExample{{ post.id }}" aria-expanded="false" aria-controls="collapseExample">
                    Add Comment <i class="fas fa-plus pink"></i>
                 </button>
             {% endif %}
