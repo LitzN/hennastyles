@@ -8,6 +8,7 @@
 
 {% block content %}
 <div class="product-buffer"></div>
+<!--...............LOADING OVERLAY.............................-->
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
@@ -16,12 +17,14 @@
     </h1>
 </div>
 <div class="container">
+    <!--...............HEADING.............................-->
     <div class="row">
         <div class="col-10 offset-1">
             <p class="welcome logo-font pink text-center mt-5">Checkout</p>
             <hr>
         </div>
     </div>
+    <!--...............ORDER SUMMARY.............................-->
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted"><strong>Order Summary ({{ product_count }})</strong></p>
@@ -68,15 +71,18 @@
                 </div>
             </div>
         </div>
+        <!--...............CHECKOUT FORM.............................-->
         <div class="col-12 col-lg-6">
             <p class=""> Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
+                    <!--...............CHECKOUT FORM: DETAILS.............................-->
                     <legend class="fieldset-label small px-2 w-auto"> Details </legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
+                <!--...............CHECKOUT FORM: DELIVERY.............................-->
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small px-2 w-auto"> Delivery Info </legend>
                     {{ order_form.phone_number | as_crispy_field }}
@@ -86,7 +92,7 @@
                     {{ order_form.street_address1 | as_crispy_field }}
                     {{ order_form.street_address2 | as_crispy_field }}
                     {{ order_form.county | as_crispy_field }}
-                    
+                    <!--...............CHECKOUT FORM: SAVE INFO.............................-->
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -99,6 +105,7 @@
                         {% endif %}
                     </div>
                 </fieldset>
+                <!--...............CHECKOUT FORM: PAYMENT.............................-->
                 <fieldset class="rounded px-3">
                     <legend class="fieldset-label small px-2 w-auto"> Payment details </legend>
                     <div class="mb-3" id="card-element"></div>
@@ -106,12 +113,14 @@
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                 <div class="submit-button text-right mt-5 mb-2">
+                    <!--...............BACK TO BAG LINK .............................-->
                     <a href="{% url 'view_bag' %}" class="btn btn-outline-black">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
+                    <!--...............CHECKOUT FORM: SUBMISSION.............................-->
                     <button id="submit-button" class="btn border-black pink-button">
                         <span class="font-weight-bold">Complete order</span>
                         <span class="icon">

@@ -10,7 +10,7 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """ """
+    """View to add products to shopping bag """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -48,7 +48,7 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """ """
+    """ view to adjust products in shopping bag """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     colour = None
@@ -82,7 +82,7 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """ """
+    """ View to remove products from shopping bag"""
     try:
         product = get_object_or_404(Product, pk=item_id)
         colour = None

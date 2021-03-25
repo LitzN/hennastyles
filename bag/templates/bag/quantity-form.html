@@ -1,4 +1,4 @@
-<form class="update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
         <div class="input-group">
@@ -11,7 +11,7 @@
                 </button>
             </div>
             <input class="form-control form-control-sm qty_input" type="number" name="quantity"
-            value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" 
+            value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
             id="id_qty_{{ item.item_id }}">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm rounded" data-item_id="{{ item.item_id }}"
@@ -28,4 +28,4 @@
     </div>
 </form>
 <a class="remove-link text-danger" id="remove_{{ item.item_id }}" data-product_colour="{{ item.colour }}"><small>Remove</small></a>
-<a class="update-link text-info "><small>Update</small></a>
+<a class="update-link text-info"><small>Update</small></a>

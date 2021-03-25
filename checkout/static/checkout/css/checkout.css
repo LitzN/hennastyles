@@ -52,3 +52,7 @@ select:invalid,
 select option[value=""] {
     color: darkgray !important;
 }
+
+.order-num{
+    overflow-wrap:break-word;
+}
