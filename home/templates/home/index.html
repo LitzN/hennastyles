@@ -3,17 +3,20 @@
 {% block content %}
 <div class="container-fluid">
     <div class="product-buffer"></div>
+    <!--.........HOME HEADER IMAGE..............-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="home-img"></div>
         </div>
     </div>
+    <!--.........TOP BORDER..............-->
     <div class="row">
             <div class="col-12 p-0">
                 <div class="pattern-border border-top"></div>
             </div>
         </div>
     <div class="row">
+        <!--.........HEADING AND INTRODUCTION..............-->
         <div class="col-10 offset-1">
             <p class="welcome logo-font pink text-center">Welcome to Henna Styles!</p>
         </div>
@@ -29,6 +32,7 @@
         </div>
     </div>
     <div class="row">
+        <!--.........SHOP BUTTON..............-->
         <div class="col-12 col-md-4 offset-md-1 button-center">
             <a href="{% url 'products' %}">
                 <div class="button-shop p-2">
@@ -37,6 +41,7 @@
             </a>
         </div>
         <div class="col-12 col-md-2"></div>
+        <!--.........COMMUNITY BUTTON..............-->
         <div class="col-12 col-md-4 button-center">
             <a href="{% url 'view_posts' %}">
                 <div class="button-subscribe p-2">
@@ -45,11 +50,11 @@
             </a>
         </div>
     </div>
-</div>
-
-<div class="row">
-        <div class="col-12">
+    <!--.........BOTTOM BORDER..............-->
+    <div class="row">
+        <div class="col-12 p-0">
             <div class="pattern-border border-bottom mt-3"></div>
         </div>
-        </div>
+    </div>
+</div>
 {% endblock %}

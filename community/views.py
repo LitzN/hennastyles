@@ -17,10 +17,9 @@ def view_posts(request):
 
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except:
+    except user.DoesNotExist:
         user = None
         messages.info(request, 'You need to log in to add comments/posts.')
-
 
     for post in posts:
         post.likes = Like.objects.filter(post=post.id).count()
@@ -51,7 +50,7 @@ def view_posts(request):
 def post_detail(request, post_id):
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except:
+    except user.DoesNotExist:
         user = None
     post = get_object_or_404(Post, id=post_id)
     comments = Comment.objects.filter(for_post=post)
@@ -65,7 +64,8 @@ def post_detail(request, post_id):
             messages.success(request, 'Comment Added!')
             return redirect(reverse('post_detail', args=[post.id]))
         else:
-            messages.error(request, "Post couldn't be added. Please check over your form.")
+            messages.error(request, "Post couldn't be added. Please check over \
+                           your form.")
     else:
         form = CommentForm()
 
@@ -97,7 +97,8 @@ def like(request, post_id):
                 messages.success(request, 'Liked!')
                 return redirect(reverse('post_detail', args=[post.id]))
         else:
-            messages.error(request, "Something went wrong. Please try again later")
+            messages.error(request, "Something went wrong. Please try again \
+                           later")
             return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = LikeForm()
@@ -113,7 +114,8 @@ def add_post(request):
             messages.success(request, 'Post Added!')
             return redirect(reverse('view_posts'))
         else:
-            messages.error(request, "Post couldn't be added. Please check over your form.")
+            messages.error(request, "Post couldn't be added. Please check \
+                           over your form.")
     else:
         form = PostForm()
     template = 'community/add_post.html'
@@ -138,7 +140,8 @@ def edit_post(request, post_id):
             messages.success(request, "Post updated!")
             return redirect(reverse('view_posts'))
         else:
-            messages.error(request, 'Post update failed. Please check form is valid.')
+            messages.error(request, 'Post update failed. Please check form is \
+                           valid.')
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.heading}')
@@ -161,7 +164,8 @@ def delete_comment(request, comment_id):
         messages.success(request, 'Comment Deleted!')
         return redirect(reverse('post_detail', args=[post.id]))
     else:
-        messages.error(request, 'Sorry, you can only delete your own comments.')
+        messages.error(request, 'Sorry, you can only delete your own \
+                       comments.')
     return redirect(reverse('view_posts'))
 
 
@@ -186,7 +190,8 @@ def edit_comment(request, comment_id):
             messages.success(request, "Comment updated!")
             return redirect(reverse('post_detail', args=[post.id]))
         else:
-            messages.error(request, 'Comment update failed. Please check form is valid.')
+            messages.error(request, 'Comment update failed. Please check form \
+                           is valid.')
     else:
         form = CommentForm(instance=comment)
         messages.info(request, f'You are editing {comment.body}')
