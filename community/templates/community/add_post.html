@@ -3,16 +3,19 @@
 {% block content %}
 <div class="container-fluid">
     <div class="buffer"></div>
+    <!--...................PATTERN BORDER.......................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-top"></div>
         </div>
     </div>
+    <!--...................HEADING.......................-->
     <div class="row">
         <div class="col-10 offset-1">
             <p class="welcome logo-font pink text-center">Add a post</p>
         </div>
     </div>
+    <!--...................ADD POST FORM.......................-->
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 text-center mb-4">
             <form class="mt-3" method="POST" id="PostForm" enctype="multipart/form-data">
@@ -25,15 +28,11 @@
             </form>
         </div>
     </div>
+    <!--...................PATTERN BORDER......................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-bottom"></div>
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    
 {% endblock %}

@@ -1,10 +1,12 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+        <!--.........MOBILE HOME LINK............-->
         <li class="nav-item dropdown d-block d-lg-none">
             <a class="logo-font nav-link text-black mr-5 prod-links" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
+        <!--.........MOBILE ALL PRODUCT AND SORTING LINKS............-->
         <li class="nav-item dropdown">
             <a class="logo-font nav-link text-black mr-5 prod-links" href="#" id="all-products-link" data-toggle="dropdown">
                 All Products
@@ -15,6 +17,7 @@
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
+        <!--.........STENCIL PRODUCT LINKS............-->
         <li class="nav-item dropdown">
             <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="stencils" data-toggle="dropdown">
                 Stencils
@@ -27,6 +30,7 @@
                 <a href="{% url 'products' %}?category=eyebrow,hand_feet,mini_packs,luxe_packs" class="dropdown-item">All Stencils</a>
             </div>
         </li>
+        <!--.........TOOL PRODUCT LINKS............-->
         <li class="nav-item dropdown">
             <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="tools" data-toggle="dropdown">
                 Tools
@@ -38,6 +42,7 @@
                 <a href="{% url 'products' %}?category=stamps,precision_tools,eyebrow_tools" class="dropdown-item">All tools</a>
             </div>
         </li>
+        <!--.........HENNA PRODUCT LINKS............-->
         <li class="nav-item dropdown">
             <a class="logo-font nav-link text-black prod-links mr-5" href="#" id="henna" data-toggle="dropdown">
                 Henna

@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container">
     <div class="product-buffer"></div>
+    <!--...............HEADING....................-->
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <h1 class="logo-font pink text-center mt-5 mb-3">Product Management</h1>
@@ -11,6 +12,7 @@
             <hr>
         </div>
     </div>
+    <!--...............ADD PRODUCT FORM....................-->
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
@@ -22,6 +24,7 @@
                         {{ field }}
                     {% endif %}
                 {% endfor %}
+                <!--...............CANCEL/SUBMIT BUTTONS....................-->
                 <div class="float-right mb-5">
                     <a class="btn border-black pink-button font-weight-bold mr-5" href="{% url 'products' %}">
                         <span class="icon mr-2"><i class="fas fa-caret-left pink"></i></span>
@@ -35,17 +38,20 @@
             </form>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <div class="pattern-border border-bottom"></div>
+    <!--...............CANCEL/SUBMIT BUTTONS....................-->
+    <div class="row">
+        <div class="col-12">
+            <div class="pattern-border border-bottom"></div>
+        </div>
     </div>
 </div>
+
 
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
+    <!--.........JAVASCRIPT TO DISPLAY NEW IMAGE NAME..............-->
     <script>
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];

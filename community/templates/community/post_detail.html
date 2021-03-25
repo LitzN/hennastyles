@@ -36,7 +36,7 @@
                     <p class="float-left text-muted">Created by: <i>{{ post.user_profile }}</i></p>
                 </div>
             </div>
-            <!--.......................LIKE/COMMENT.....................-->
+            <!--.......................LIKE/COMMENT FOR AUTHENTICATED USERS.....................-->
             <div class="row">
                 <div class="col-6">
                     <div class="text-center">
@@ -47,8 +47,7 @@
                             <input type="hidden" name="post" value="{{ post.id }}">
                             <button class="btn btn-default" type="submit">
                                 <strong class="pink"><i class="fas fa-thumbs-up pink"></i> Like/Unlike<br> {{ like_count }} </strong></button>
-                        </form>
-                        
+                        </form>  
                         {% else %}
                         <i class="fas fa-thumbs-up pink"></i><p class="pink"><strong>{{ like_count }}</strong></p>
                     {% endif %}
@@ -68,7 +67,7 @@
         </div>
     </div>
 
-    <!--COMMENTS.......................-->
+    <!--...................COMMENTS.......................-->
     <div class="row">
         <div class="offset-sm-1 col-sm-10 col-md-8 offset-md-2">
             {% for comment in comments %}
@@ -80,7 +79,7 @@
                     </div>
                     <div class="col-9 comment-body">
                         <p>{{ comment.body }}</p>
-                        {% if user == comment.user_profile or user.user.is_superuser %}
+                        {% if user == comment.user_profile %}
                         <a  class="btn-sm small float-right text-danger btn" href="{% url 'delete_comment' comment.id %}">Delete</a>
                             <button class="btn btn-sm small text-info float-right" type="button" data-toggle="collapse" data-target="#collapse{{ comment.id }}" aria-expanded="false" aria-controls="collapse{{ comment.id }}">
                             Edit
@@ -98,7 +97,8 @@
                                 </form>
                             </div>
                         </div>
-
+                        {% elif user.user.is_superuser%}
+                             <a  class="btn-sm small float-right text-danger btn" href="{% url 'delete_comment' comment.id %}">Delete</a>
                         {% endif %}
                     </div>
                 </div>
@@ -129,6 +129,7 @@
             {% endif %}
         </div>
     </div>
+    <!--...................VIEW POSTS LINK.......................-->
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
             <a href="{% url 'view_posts' %}" class="btn pink-button border-black font-weight-bold float-left">
@@ -139,6 +140,7 @@
             </a>
         </div>
     </div>
+    <!--...................PATTERN BORDER.......................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-bottom mt-3"></div>

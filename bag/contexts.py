@@ -5,7 +5,7 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    """ Logic for making bag contents and totals avaliable through the site """
     bag_items = []
     total = 0
     product_count = 0

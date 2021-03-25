@@ -3,16 +3,19 @@
 {% block content %}
 <div class="container-fluid">
     <div class="product-buffer"></div>
+    <!--..............PATTERN BORDER................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-top"></div>
         </div>
     </div>
+    <!--..............HEADING................-->
     <div class="row">
         <div class="col-10 offset-1 text-center">
             <p class="welcome logo-font pink mt-2 mb-3">Community</p>
         </div>
     </div>
+    <!--..............SEARCH FORM................-->
     <div class="row">
         <div class="col-sm-12 col-md-6 offset-md-3">
             <form method="GET" action="{% url 'view_posts' %}">
@@ -29,6 +32,7 @@
             </form>
         </div>
     </div>
+    <!--...............ADD POST & RESET SEARCH BUTTONS...........................-->
     <div class="row">
         <div class="col-sm-12 text-center">
             <a class="pink-button btn btn-default border-black mt-4 mb-5 float-left" href="{% url 'add_post' %}"><strong>CREATE A POST</strong> <i class="fas fa-plus pink"></i></a>
@@ -37,12 +41,13 @@
             {% endif %}
         </div>
     </div>
+    <!--...............POSTS..........................-->
     <div class="row">
         {% for post in posts %}
         <div class="col-sm-12 col-md-6 col-lg-4 text-center">
             <div class="card">
                 {% if post.image %}
-                <a href="{% url 'post_detail' post.id %}"><img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap"></a>
+                <a href="{% url 'post_detail' post.id %}"><img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.heading }} image"></a>
                 {% endif%}
                 <div class="card-body">
                     <h4 class="card-title mb-4">{{ post.heading }}</h4>
@@ -50,16 +55,21 @@
                         <i class="fas fa-user pink"></i>
                         {{ post.user_profile }}
                         <br>
+                        <!--...............EDIT/DELETE POST BUTTONS......................-->
                         {% if user == post.user_profile %}
-                        <a class="text-danger small" href="{% url 'delete_post' post.id %}"> Delete</a>
-                        <a class="small" href="{% url 'edit_post' post.id %}"> Edit </a>
+                            <a class="text-danger small" href="{% url 'delete_post' post.id %}"> Delete</a>
+                            <a class="small" href="{% url 'edit_post' post.id %}"> Edit </a>
+                        {% elif user.user.is_superuser %}
+                            <a class="text-danger small" href="{% url 'delete_post' post.id %}"> Delete</a>
                         {% endif %}
                     </h6>
+                    <!--...............POST LIKE/ COMMENT COUNT.........................-->
                     <div class="mt-3">
                         <span class="mr-3"><i class="fas fa-thumbs-up pink fa-lg"></i><strong> {{ post.likes }}</strong></span>
                         <span class="ml-3"><i class="fas fa-comment pink fa-lg"></i><strong> {{ post.comments }}</strong></span>
                     </div>
                     <hr class="pink">
+                    <!--...............POST BODY PREVIEW AND POST DETAIL LINK......................-->
                     <p class="card-text">{{ post.body|truncatechars:250}}</p>
                     <a href="{% url 'post_detail' post.id %}" class="pink-button btn btn-default border-black">Read More <i class="fas fa-caret-right pink ml-2"></i></a>
                 </div>
@@ -67,6 +77,7 @@
         </div>
         {% endfor %}
     </div>
+    <!--...............PATTERN BORDER......................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-bottom"></div>

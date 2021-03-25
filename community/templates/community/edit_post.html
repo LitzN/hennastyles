@@ -3,16 +3,19 @@
 {% block content %}
 <div class="container-fluid">
     <div class="buffer"></div>
+    <!--...................PATTERN BORDER.......................-->
     <div class="row">
             <div class="col-12 p-0">
                 <div class="pattern-border border-top"></div>
             </div>
         </div>
+    <!--...................HEADING.......................-->
     <div class="row">
         <div class="col-10 offset-1">
             <p class="welcome logo-font pink text-center">Edit post</p>
         </div>
     </div>
+    <!--...................EDIT POST FORM.......................-->
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 text-center mb-4">
             <form class="mt-3" action="{% url 'edit_post' post.id %}" method="POST" id="edit_post" enctype="multipart/form-data">
@@ -25,6 +28,7 @@
             </form>
         </div>
     </div>
+    <!--...................PATTERN BORDER.......................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-bottom"></div>

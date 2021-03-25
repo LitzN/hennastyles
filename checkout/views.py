@@ -32,6 +32,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ View to create order and stripe payment"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -104,6 +105,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        # Prefill user details
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -137,7 +139,7 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """ View for successful checkouts"""
+    """ View for successful checkouts, logic to save customer details"""
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 

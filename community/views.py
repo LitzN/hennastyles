@@ -9,7 +9,7 @@ from django.contrib import messages
 
 
 def view_posts(request):
-    """ View to return index page """
+    """ View to show all posts, comment and like counts page """
     template = 'community/view_posts.html'
     posts = Post.objects.all()
     comments = Comment.objects.all()
@@ -17,14 +17,15 @@ def view_posts(request):
 
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except user.DoesNotExist:
-        user = None
+    except:
+        user = "AnonymousUser"
         messages.info(request, 'You need to log in to add comments/posts.')
 
     for post in posts:
         post.likes = Like.objects.filter(post=post.id).count()
         post.comments = Comment.objects.filter(for_post=post.id).count
 
+    # Search posts by search query
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
@@ -48,15 +49,18 @@ def view_posts(request):
 
 
 def post_detail(request, post_id):
+    """ View to show full post, comments and likes """
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except user.DoesNotExist:
-        user = None
+    except:
+        user = 'AnonymousUser'
     post = get_object_or_404(Post, id=post_id)
     comments = Comment.objects.filter(for_post=post)
     likes = Like.objects.filter(post=post_id)
     like_count = likes.count()
     comment_count = comments.count()
+
+    # Add comment form
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -80,7 +84,9 @@ def post_detail(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def like(request, post_id):
+    """ View to add/remove like from a post """
     if request.method == 'POST':
         form = LikeForm(request.POST)
         user = get_object_or_404(UserProfile, user=request.user)
@@ -106,6 +112,7 @@ def like(request, post_id):
 
 @login_required
 def add_post(request):
+    """ View to add a post """
     user = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -126,7 +133,9 @@ def add_post(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_post(request, post_id):
+    """ View to edit post """
     user = get_object_or_404(UserProfile, user=request.user)
     post = get_object_or_404(Post, id=post_id)
     if user != post.user_profile:
@@ -155,7 +164,9 @@ def edit_post(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_comment(request, comment_id):
+    """ View to delete a comment  """
     user = get_object_or_404(UserProfile, user=request.user)
     comment = get_object_or_404(Comment, id=comment_id)
     post = comment.for_post
@@ -169,10 +180,15 @@ def delete_comment(request, comment_id):
     return redirect(reverse('view_posts'))
 
 
+@login_required
 def delete_post(request, post_id):
+    """ View to delete a post """
     user = get_object_or_404(UserProfile, user=request.user)
     post = get_object_or_404(Post, id=post_id)
     if user == post.user_profile:
+        post.delete()
+        messages.success(request, 'Post Deleted!')
+    elif user.user.is_superuser:
         post.delete()
         messages.success(request, 'Post Deleted!')
     else:
@@ -180,9 +196,16 @@ def delete_post(request, post_id):
     return redirect(reverse('view_posts'))
 
 
+@login_required
 def edit_comment(request, comment_id):
+    """ View to edit a comment """
+    user = get_object_or_404(UserProfile, user=request.user)
     comment = get_object_or_404(Comment, id=comment_id)
     post = comment.for_post
+    if user != comment.user_profile:
+        messages.error(request, 'Sorry, you can only edit your own posts.')
+        return redirect(reverse('view_posts'))
+
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
