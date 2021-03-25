@@ -43,7 +43,8 @@ def all_products(request):
                                          search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                                        description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -81,7 +82,8 @@ def add_product(request):
             messages.success(request, 'Product Added!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, "Product couldn't be added. Please check over your form.")
+            messages.error(request, "Product couldn't be added.\
+                 Please check over your form.")
     else:
         form = ProductForm()
     template = 'products/add_product.html'
@@ -106,7 +108,8 @@ def edit_product(request, product_id):
             messages.success(request, "Product updated!")
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Product update failed. Please check form is valid.')
+            messages.error(request, 'Product update failed. Please check \
+                form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -123,7 +126,8 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """ Delete product in store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can delete products.')
+        messages.error(request, 'Sorry, only store owners\
+             can delete products.')
         return redirect(reverse('home'))
     product = get_object_or_404(Product, pk=product_id)
     product.delete()

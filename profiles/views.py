@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import UserProfile
 from .forms import UserProfileForm
-from community.models import Post, Like
+from community.models import Like
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -21,7 +21,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile Updated!')
         else:
-            messages.error(request, "Profile couldn't be update. Please double check your form.")
+            messages.error(request, "Profile couldn't be update. Please \
+                           double check your form.")
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
