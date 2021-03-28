@@ -130,7 +130,9 @@ or view the community page where they can gain some inspiration, which hopefully
     When the user is editing a product the current product image is shown as a preview.
 
 ### Shopping Bag page:
-    - 
+    - __Products__ that have been added to the shopping bag are displayed along with relevant information, such as colour and quantity. 
+    - __Update/Delete buttons__ Users can adjust the quantity of an item in their bag or remove it completely.
+    - __Secure Checkout button__ takes the user to the checkout page where they can finish the transaction.
 
 ### Checkout page:
 - __Order Summary:__ Shows the user their shopping bag and a breakdown of their order, delivery and total costs, before they complete their purchase.
@@ -348,7 +350,89 @@ toggle menu was working well.
         -__Functionality__:
             - I pressed this button and was directed back to the products homepage.
     
-    
+### Shopping Bag page:
+    - __Products:__ 
+        - __Functionality:__ I added three items to the bag with colours and without and the right products, quantities and colours were
+        displayed on the shopping bag page.
+        - __Responsive Design:__ The product in the shopping bag are displayed through a table on larger screens with the totals due and checkout 
+        button below the summary. On smaller screens, the totals and checkout button are at the top of the page and the summary is displayed below 
+        this so a user doesn't have to scroll all the way to complete their purchase.
+    - __Update/Delete buttons__ 
+        - __Functionality:__
+        - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
+        appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
+        total asjusted accordingly.
+        ISSUE WITH MIN AND MAX VALUES
+        - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
+        product was no longer on the shopping bag page and the total value adjusted correctly.
+    - __Secure Checkout button__ 
+        -__Functionality__:
+        - I pressed the checkout button with one item in the shopping bag and was directed to the checkout page with the relevant 
+        products in the order summary.
+        - I opened the shopping bag page with no products in the bag and the button wasn't displayed.
+
+### Checkout page:
+- __Order Summary:__ 
+    -__Functionality:__
+     - I checked whether all the information shown on the order summary was correct including product information and checkout 
+     totals. All the information was the same as in the shopping bag I had just created.
+- __Form__: 
+    - __Functionality__:
+        - I tried to submit the form with a required field not filled in. A popup appeared by the field which had been
+        missed asking me to fill it in.
+        - I tried to submit the form with an invalid email, the form reloaded with an error message at the bottom 
+        telling me the email address I submitted was invalid.
+        - I tried to submit the form with all required fields filled but with an invalid card number, when I had entered
+        full number the input turned red and a message appeared underneath telling me the card number is not valid.
+        - I submitted the form with all requried fields and a valid card number and was redirected to the checkout success page
+        with an order summary for that order. I then checked the order had been created in the database.
+        - I filled the form with all requried field and valid card number and pressed the checkout button, then closed the page 
+        immediately before the checkout success page could load. This should not be an issue as the order should be created by the
+        webhook set up with stripe. I reopened the site and checked the admin, the order was successfully added.
+-__Delivery information__:
+    - As a logged in user with no previous purchase:
+        - The form was empty when loaded, I filled in the required fields and completed the purchase unchecking the save info box 
+        before submitting. The order was successfully processed 
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        - I filled in all the required fields,completed the purchase left the save info checkbox selected.
+        I was redirected to the checkout success page with a popup toast confirming the order was successful. I checked 
+        the profile page and found the details had been saved.
+    - As a logged in user with a previous purchase:
+        The delivery information was prefilled based on what I had entered for the previous purchase.
+    - As an anonymous user:
+        The form was empty and a link appeared below asking me if I want to register or login to save the information.
+-__Stripe__: only currently functional with the test card number provided by stripe.
+    - __Functionality__: 
+        - I filled in the form with all valid information and the test card number from stripe which requires no further authentication.
+        I submitted the form and checked the stripe website to see whether a webhook had been sent. I could see that the payment intent
+        had succeeded and the card had been charged the correct amount.
+        - I filled in the form with all valid information and the test card number from stripe which requires futher authentication. I
+        selected the 'fail authentication' button which bought me back to the form with a message at the bottom telling me that 
+        my payment method couldn't be authenticated. The payment intent had failed on stripe and no order was created.
+        - I filled in the form with all valid information and the test card number from stripe which requires futher authentication. I
+        selected the 'authenticate' button which bought me back to the checkout success page with an order confirmation. I checked 
+        stripe and the purchase was successful.
+- __Loading overlay__:
+    - __Functionality__:the overlay appeared on the screen with the rotating reload sign. I repeated the process on mobile and the 
+    effect was the same. The overlay remained on screen when extra authorisation was required by stripe and disapeared when the 
+    form was fully submitted.
+
+### Checkout Success page:
+- __Success toast__ 
+    - __Functionality__:
+        -  I completed a purchase successfully and was directed to the checkout success page where a popup toast with a success 
+         message notified me of my order number and email the confirmation would be sent to, as expected.
+        - __Logged in user, accessing page through order history__: the checkout success page loaded with a popup toast with an 
+        info message notifing me that I was viewing a previous order and that a confirmation email was sent on the order date.
+- __Order summary__:
+     - I checked whether all the information shown on the order summary was correct including product information and checkout 
+     totals. All the information was the same as the order I had just created.
+- __Back to shop/community/profile buttons__
+    - When the page is loaded after a successful checkout, the buttons avaliable to me were 'back to shop' and 'community'. 
+     I selected the first link in a new tab which led me to the products page, I selected the second in a new tab which 
+     led me to the community page. The result was the same for both authenticated and anonymous users.
+    - When page is loaded from user profile for a past order, the link avaliable is for return to the profile page, I selected 
+    this and was redirected back to the profile page successfully.
 
 ## Bugs
 

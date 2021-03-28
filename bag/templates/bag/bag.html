@@ -130,11 +130,10 @@
     })
 </script>
 {% include 'products/includes/quantity_input_script.html' %}
-
 <script>
     // Update product quantity
     $('.update-link').click(function(e){
-        var form = $(this).prev('.update-form');
+        var form = $('.update-form')
         form.submit();
     });
 
