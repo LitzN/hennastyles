@@ -12,28 +12,22 @@ The past year of worldwide lockdowns has inspired many people to take up new hob
 ### __Value provided:__
 #### __For users:__
 - As a visitor with no previous experience with henna I would like to know more about it before purchasing.
-    - The homepage will address this as soon as a visitor lands on the site. The homepage will contain a link to the community 
-    section and shop so visitors can find further information or go straight to the shop. 
+
 - As a new user I want guidance on how to use the products effectively
-    - The community section will address this. People will be able to view henna related posts from other users and the site 
-    owner. Knowing more will encourage them to make purchases and experiment with extra products. In order to ask questions of 
-    the community however they will have to create an account.
+
 - As a professional user and want to find a range of products in one place
-    - The homepage will contain a link to the shop and the types of different products will be displayed on the navigation bar 
-    throughout the site so visitors can find what they are looking for quickly from anywhere.
+
 - As a user who has some previous interest in henna I want to know what I have purchased before so I can repurchase easily
-    - When making a purchase customers can create an account which will hold their preferred shipping details and an order history. This will be available only by logging in when making a purchase.
+
 - As a professional user I want to see others work for inspiration
-    - Community page will allow people to view others' work, however to gain the full effect of the community (respond to 
-    and create posts), users will have to log in.
+
 #### __For store owner:__ I want to maximise sales.
 - I want to make sure all visitors know the range of products being sold.
-    - Site navigation will contain the main types of products sold and will be available throughout the site.
+
 - I want the user to have a positive response to the site and spend longer on it as this will motivate return visits.
-    - Users will be able to view the community page which will produce a positive response and lead them to stay on the site longer. They will be made aware that they must create an account to access all actions on the page.
+  
 - I want to increase the number of visitors who return to the site in order to gain repeat purchases.
-    - The community page and order history increase the likelihood customers will return, either to view new posts, 
-    comments on posts that interested them or simply repurchase a product they liked.
+
 
 ### __Wireframes__
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the 
@@ -193,13 +187,12 @@ the page is made aware of this through a toast popup.
     one is selected. Edit form is prefilled for ease of adjustment and a pop up toast appears when the page is loaded alerting the user that 
     they are editing their post.
 
-### __Profile page:__
-- Only avaliable when a user is authorised.
+### __Profile page:__ is only avaliable when a user is authorised and they only have access to their own profile page.
 - __User Profile Form__ allows a user to add/adjust their default shipping information to make checkout faster and easier.
 - __Order Summary__ is originally hidden when the page is loaded. Allows the user to bring up a summary of their previous orders 
 as well as select an order to view it's confirmation and full details.
-- __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, they are also able to 
-remove the like and therefore the post from their profile.
+- __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, 
+they are also able to remove the like and therefore the post from their profile.
 
 ### __Security Features:__
 - All forms must be submitted with all required fields filled or they will not be put into the database
@@ -213,25 +206,54 @@ post creator is allowed to edit the post so others can't tamper with their post.
 - Add ability to log in through social media
 
 ## Technologies used 
- - Balsamic 
- - Html
- - Bootstrap
- - Jinja
- - Python
- - Javascript 
- - CSS 
- - Django
+ - __Balsamic__ was used to create the wireframes for this project.
+ - __Html 5__ was used to create the templates for the site.
+ - __Bootstrap__ was used to structure HTML and for some responsive components.
+ - Jinja was used to to templates
+ - __Python__ was used to write the logic for the app
+ - __Javascript__ was used to add interactive features to components
+ - __CSS__ was used to style the site
+ - Django was used 
  - All Auth
- - Stripe
- - Heroku
- - Heroku Postgres
- - AWS
- - FontAwesome
- - Googlefonts
+ - __Stripe__ was used to handle payments for the store
+ - __Heroku__ was used to host the deployed site.
+ - __Heroku Postgres__ was used to hold database
+ - __AWS__ was used to store website images and static files
+ - __FontAwesome__ was used for it's icons throughout the site
+ - __Googlefonts__ was used for the logo font and main site font
  - Html validator
  - Pylint for Django
 
 ## Testing
+
+VALIDATOR RESULTS
+
+### TESTING USER STORIES NEEDS ARE MET
+
+- As a visitor with no previous experience with henna I would like to know more about it before purchasing.
+    - The homepage will address this as soon as a visitor lands on the site. The homepage will contain a link to the community 
+    section and shop so visitors can find further information or go straight to the shop. 
+- As a new user I want guidance on how to use the products effectively
+    - The community section will address this. People will be able to view henna related posts from other users and the site 
+    owner. Knowing more will encourage them to make purchases and experiment with extra products. In order to ask questions of 
+    the community however they will have to create an account.
+- As a professional user and want to find a range of products in one place
+    - The homepage will contain a link to the shop and the types of different products will be displayed on the navigation bar 
+    throughout the site so visitors can find what they are looking for quickly from anywhere.
+- As a user who has some previous interest in henna I want to know what I have purchased before so I can repurchase easily
+    - When making a purchase customers can create an account which will hold their preferred shipping details and an order history. This will be available only by logging in when making a purchase.
+- As a professional user I want to see others work for inspiration
+    - Community page will allow people to view others' work, however to gain the full effect of the community (respond to 
+    and create posts), users will have to log in.
+#### __For store owner:__ I want to maximise sales.
+- I want to make sure all visitors know the range of products being sold.
+    - Site navigation will contain the main types of products sold and will be available throughout the site.
+- I want the user to have a positive response to the site and spend longer on it as this will motivate return visits.
+    - Users will be able to view the community page which will produce a positive response and lead them to stay on the site longer. They will be made aware that they must create an account to access all actions on the page.
+- I want to increase the number of visitors who return to the site in order to gain repeat purchases.
+    - The community page and order history increase the likelihood customers will return, either to view new posts, 
+    comments on posts that interested them or simply repurchase a product they liked.
+
 
 ## Bugs
 
