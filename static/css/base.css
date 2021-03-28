@@ -75,6 +75,10 @@ body{
     min-height:10rem;
 }
 
+.delivery-banner-text{
+    font-size:x-large;
+}
+
 .nav-main-link{
     font-size:0.5rem;
 }
@@ -146,7 +150,7 @@ body{
 /* Home page */ 
 
 .welcome{
-    font-size:5rem;
+    font-size:4rem;
 }
 
 .welcome-text{
@@ -292,7 +296,7 @@ a.category-badge > span.badge:hover{
     }
 
     .welcome{
-        font-size:3rem;
+        font-size:2.5rem;
     }
 
     .welcome-text{
@@ -314,6 +318,10 @@ a.category-badge > span.badge:hover{
     .post-img{
         max-width:inherit;
     }
+
+    .delivery-banner-text{
+    font-size:medium;
+}
 }
 
 /*------MED MOBILE----------------*/
@@ -342,7 +350,7 @@ a.category-badge > span.badge:hover{
         font-size: 2rem;}
 
     .product-buffer{
-        min-height:6rem;
+        min-height:9rem;
     }
 
     .logo-text{
