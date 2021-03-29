@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="buffer"></div>
-<div class="container">
+<div class="container-fluid">
     <!--...............HEADING....................-->
     <div class="row">
         <div class="col-10 offset-1">
@@ -17,7 +17,7 @@
     </div>    
     <!--...............DEAFULT USER INFO FORM....................-->
     <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-10 col-lg-6">
             <p class="text-center welcome-text"><strong>Default Delivery Information</strong></p>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
@@ -26,7 +26,7 @@
             </form>
         </div>
         <!--...............ORDER HISTORY INFO....................-->
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 order-first order-md-last">
             <div class="pink-border">
                 <a class="btn w-100" data-toggle="collapse" href="#order-history" role="button" aria-expanded="false" aria-controls="order-history">
                     <p class="text-center mt-2 float-left welcome-text"><strong>Order History</strong></p><i class="fas fa-caret-down pink float-right fa-lg mt-3 mr-3"></i>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-     <!--...............ORDER HISTORY INFO....................-->
+     <!--...............PATTERN BORDER....................-->
     <div class="row">
         <div class="col-12 p-0">
             <div class="pattern-border border-bottom"></div>

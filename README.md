@@ -272,10 +272,10 @@ VALIDATOR RESULTS
 ## Testing functionality and responsive design
 
 ### Site wide features
-- __Navigation bar:__ to test this I manually pressed each link on the nagivation page, both as an anonymous user and as an existing user 
-as the links avaliable are different. The process below was repeated on both large screen version of the site and mobile to ensure the
-toggle menu was working well.
-    - Functionality: Before logging in:
+- __Navigation bar:__ to test this I manually pressed each link on the nagivation page, both as an anonymous user and as an existing
+ user as the links avaliable are different. The process below was repeated on both large screen versions of the site and mobile to 
+ ensure the toggle menu was working well.
+    - __Functionality:__ Before logging in:
     I clicked on each link on top navigation. 
     The logo led to the homepage successfully, the accounts button produced a dropdown when clicked which gave the options of "Register" and 
     "Login", both links led to the correct page. The shopping bag button led to the shopping bag page, the community button led to the community 
@@ -295,8 +295,8 @@ toggle menu was working well.
 ### Homepage
 
 - __Header image, heading and intro__
-    - __Responsive design:__ to test this, I used the google inspector tool to view the website on different screensizes.
-    I viewed the image on ensure the image was displayed well. The image resolution was good on all screen sizes.
+    - __Responsive design:__ to test this, I used the google developer tools to view the website on different screen sizes.
+    I viewed the image to ensure it was displaying well. The image resolution was good on all screen sizes.
     The welcome text size was reduced on smaller screen sizes.
 - __Buttons__ 
     - __Functionality:__ I pressed on each of the buttons. The shop button led to the products and the community button to the 
@@ -305,8 +305,8 @@ toggle menu was working well.
     
 ### Products page
     - __Sorting dropdown selector__ to test this I selected each option from the product sorting drop down to see the results.
-        -__Functionality:__ The sorting worked for all of the options price, category and name sorting. The results were organised
-        as selected. The selector was functional no matter what category of products were being displayed or when the product results 
+        -__Functionality:__ The sorting worked for all of the sorting options (price, category and name). The results were organised
+        as selected. The selector was functional no matter what the category of products currently being displayed where or when the product results 
         were from a search query. The 'product home' button appeared as expected when product sorting or filtering had taken place and 
         reset the product page when pressed.
     - __Product Results__ 
@@ -339,7 +339,8 @@ toggle menu was working well.
             - I set the current value to 3 and added the product to the bag, the quantity was reflected in the shopping bag and current total.
     - __Colour selector__:
         - __Functionality__:
-            - I selected a colour for the product and added it to the bag, the product with the colour detail was added to the shopping bag.
+            - I selected a colour for the product and added it to the bag, a toast appeared showing the product with the colour detail had been 
+            added to the shopping bag.
             - I selected a different colour of the same product and added it to the bag, the product displayed seperately with the correct colour shown 
             in the details.
     - __Add to bag button and success toasts__ :
@@ -391,16 +392,23 @@ toggle menu was working well.
         - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
         appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
         total asjusted accordingly.
-        ISSUE WITH MIN AND MAX VALUES
+        - When trying to set the values above and below the maximum values set on the quantity input, the order was still processed despite 
+        the javascript appearing on the page and being the same as the fully functional quantity selector on the product details page. When 
+        the value is set below one the product is removed from the page but users can add over 99 of the product to the bag. This will be 
+        reflected in the price which should alert the user. For more on this issue, please view the Bugs section.
         - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
         product was no longer on the shopping bag page and the total value adjusted correctly.
     - __Secure Checkout button__ 
         -__Functionality__:
         - I pressed the checkout button with one item in the shopping bag and was directed to the checkout page with the relevant 
-        products in the order summary.
+        product in the order summary.
         - I opened the shopping bag page with no products in the bag and the button wasn't displayed.
 
 ### Checkout page:
+- __Responsive Design:__
+    - On large screens the page is divided into two columns with the checkout form on the left and an order summary on the right. 
+    On smaller screens the order summary is stacked above the checkout form so users will see their bag before completing the 
+    purchase.
 - __Order Summary:__ 
     -__Functionality:__
      - I checked whether all the information shown on the order summary was correct including product information and checkout 
@@ -421,9 +429,8 @@ toggle menu was working well.
 -__Delivery information__:
     - As a logged in user with no previous purchase:
         - The form was empty when loaded, I filled in the required fields and completed the purchase unchecking the save info box 
-        before submitting. The order was successfully processed 
-        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        - I filled in all the required fields,completed the purchase left the save info checkbox selected.
+        before submitting. The order was successfully processed and when I returned to my profile I found the form was still empty.
+        - I filled in all the required fields and completed the purchase, leaving the save info checkbox checked.
         I was redirected to the checkout success page with a popup toast confirming the order was successful. I checked 
         the profile page and found the details had been saved.
     - As a logged in user with a previous purchase:
@@ -460,17 +467,20 @@ toggle menu was working well.
     - When the page is loaded after a successful checkout, the buttons avaliable to me were 'back to shop' and 'community'. 
      I selected the first link in a new tab which led me to the products page, I selected the second in a new tab which 
      led me to the community page. The result was the same for both authenticated and anonymous users.
-    - When page is loaded from user profile for a past order, the link avaliable is for return to the profile page, I selected 
+    - When page is loaded from a users profile, for a past order, the link avaliable is for return to the profile page, I selected 
     this and was redirected back to the profile page successfully.
 
 ### Community pages:
 
 - __Community page__ 
     - As an anonymous user, when the page is loaded, a toast appeared informing me that I must log in to add posts or comments.
+    - __Responsive Design:__
+        Posts appear three in a row on large screens, two in a row on tablets and stacked on mobile view. This is to ensure the 
+        text remains readable on all screen sizes.
     - __Search posts__: functionality is the same for authorised or anonymous users.
         -__Functionality__:
          - I typed the word 'cones', which appears in one post, into the search bar and checked to see the resulting post had the 
-         word included. The reset search button appeared and when pressed let to the main community page.
+         word included. The reset search button appeared and when pressed led to the main community page.
          - I typed the word 'henna', which appears in two posts, into the search bar and checked to see the correct posts were 
          displayed. 
     - __Add Post button__:
@@ -485,7 +495,7 @@ toggle menu was working well.
         - __Functionality:__ Like and comment count for the posts were accurate.
     - __Edit/Delete Buttons__
         - __Functionality__: as anonymous user
-            - The buttons for edit/deleting a post were not present. When tying the correct url to edit a post, I was redirected 
+            - The buttons for edit/deleting a post were not present. When typing the correct url to edit a post, I was redirected 
             to the login page.
         - __Functionality:__ as a logged in user
             - The buttons for edit/deleting a post appeared under posts created by the logged in user.
@@ -495,10 +505,15 @@ toggle menu was working well.
             - Next I created a test post to test the delete functionality. I selected the delete button and was redirected to 
             the community page, where the post was no longer visible and a toast message appeared telling me the post had been 
             deleted.
+        - __Functionality:__ as a superuser
+            - Delete links appeared under each post.
+            - I selected the delete link for one post. The page reloaded with a success toast message telling me that the post
+            has been deleted. The post was no longer displayed.
 
 - __Post detail page__ 
     - __Post heading, image and body__: visible to all users
-        - __Functionality__:
+        - __Responsive Design__: On large screens and tablet, the post appears with the image on the left and the text body of the post
+        wrapped around it. On mobile screens the image appears above the text so it can be viewed more clearly.
     - __Like button__: 
         - __Functionality__: As an anonymous user
             - I was able to see the like count but clicking on it did nothing.
@@ -506,7 +521,7 @@ toggle menu was working well.
              - I was able to see the like count. I clicked the likes and the page reloaded with a success toast telling me the 
              like had been added and the like count had increase.
              - I selected the button again and the page reloaded with a success toast telling me I had unliked the post,
-             the unlike was reflected in the like today.
+             the unlike was reflected in the like total.
     - __Comment button and form__:
         - __Functionality__: As an anonymous user
             - I was able to see the comment count but clicking on it did nothing.
@@ -525,12 +540,12 @@ toggle menu was working well.
             - __Functionality__: as a user with no comments
                 - I was not able to access any of the edit/delete buttons for any of the comments.
             - __Functionality__: as a user with a comment on the post
-                - the edit/delete links were avaliable at the bottom of my comment. 
-                - I selected the edit button which opened the comment form underneath my comment with the text filled in.
+                - The edit/delete links were avaliable at the bottom of my comment. 
+                - I selected the edit button which opened the comment form directly underneath my comment with the text filled in.
                 - I deleted the text and tried to submit the form, I was redirected back to the post detail page with an error toast 
                 saying the comment update failed and to recheck the form. I checked in the comments if the comment had been updated and 
                 it had not.
-                - I made an adjustment to comment and selected the post button. The page reloaded with a success toast telling me
+                - I made an adjustment to the comment and selected the post button. The page reloaded with a success toast telling me
                 the comment had been updated and I could see in the comments that the content had changed.
                 - Next I pressed the delete button, the page reloaded with a success message saying the comment had been deleted.
                  I checked the comments and it was no longer displayed.
@@ -541,7 +556,7 @@ toggle menu was working well.
 - __Add post page__: The page is only avaliable to logged in users, anonymous users are redirected to login.
     - __Post Form__:
         - __Functionality__:
-            - I tried to add a post with a requried field with no input, a popup appeared by the input telling me to fill it in.
+            - I tried to add a post with a requried field left blank, a popup appeared by the input telling me to fill it in.
             - I tried to add a post with no image (not required), and was redirected to the community page with a success toast 
             telling me the post has been added. I checked the posts and it was displayed.
             - I added a post with an image, and was redirected to the community page with a success toast saying the post was added.
@@ -552,7 +567,7 @@ is not the post creator, they are redirected to the homepage with a toast error 
 own posts.
     - __Post Form__
     - __Functionality__:
-            - The form is prefilled with the post details and a toast message appears letting me know the post name and confirming 
+            - The form is prefilled with the post details and a toast message appears informing me of the post name and confirming 
             that I am editing it.
             - I tried to submit the form without any content on a required field. A popup appeared by the missed field asking me to
             fill it in. 
@@ -561,6 +576,9 @@ own posts.
 
 ### __Profile page:__ this page can only be accessed by authenticated users, anonymous users who try to access it by typing the
     correct url are redirected to the sign in page.
+    - __Responsive Design:__ On large screens the personal data form appears on the left and the order summary and liked posts
+    on the right. On screen sizes below tablet, the order history and liked posts appear above the user details form so users 
+    don't have to scroll through the whole form to find those options.
     - __User Profile Form:__
         - __Functionality__: this form is optional so the form can be submitted even if not fully filled. 
          - I filled in the form with some delivery details and submitted the form. The page reloaded with the details in place 
@@ -581,6 +599,11 @@ own posts.
 
 
 ## Bugs
+### Fixed Bugs:
+    - Checkout form save info function.
+### Bugs left unfixed:
+ - Shopping bag quantity selector 
+
 
 ## Deployment
 
