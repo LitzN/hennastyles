@@ -68,7 +68,7 @@ def post_detail(request, post_id):
             messages.success(request, 'Comment Added!')
             return redirect(reverse('post_detail', args=[post.id]))
         else:
-            messages.error(request, "Post couldn't be added. Please check over \
+            messages.error(request, "Comment couldn't be added. Please check over \
                            your form.")
     else:
         form = CommentForm()
@@ -203,7 +203,7 @@ def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     post = comment.for_post
     if user != comment.user_profile:
-        messages.error(request, 'Sorry, you can only edit your own posts.')
+        messages.error(request, 'Sorry, you can only edit your own comments.')
         return redirect(reverse('view_posts'))
 
     if request.method == 'POST':
@@ -215,6 +215,7 @@ def edit_comment(request, comment_id):
         else:
             messages.error(request, 'Comment update failed. Please check form \
                            is valid.')
+            return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = CommentForm(instance=comment)
         messages.info(request, f'You are editing {comment.body}')

@@ -190,11 +190,11 @@ the page is made aware of this through a toast popup.
     they are editing their post.
 
 ### __Profile page:__ is only avaliable when a user is authorised and they only have access to their own profile page.
-- __User Profile Form__ allows a user to add/adjust their default shipping information to make checkout faster and easier.
-- __Order Summary__ is originally hidden when the page is loaded. Allows the user to bring up a summary of their previous orders 
-as well as select an order to view it's confirmation and full details.
-- __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, 
-they are also able to remove the like and therefore the post from their profile.
+    - __User Profile Form__ allows a user to add/adjust their default shipping information to make checkout faster and easier.
+    - __Order Summary__ is originally hidden when the page is loaded. Allows the user to bring up a summary of their previous orders 
+    as well as select an order to view it's confirmation and full details.
+    - __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, 
+    they are also able to remove the like and therefore the post from their profile.
 
 ### __Security Features:__
 - All forms must be submitted with all required fields filled or they will not be put into the database
@@ -349,6 +349,35 @@ toggle menu was working well.
     - __Keep Shopping button__:
         -__Functionality__:
             - I pressed this button and was directed back to the products homepage.
+
+- __Add products__ this page is only avaliable to superusers.
+    - __Security:__
+        - To ensure the page is secure, I tried to access the page as an anonymous user by typing the correct url, this led me to the 
+        sign in page. I signed in with a user who is not a superuser and I was directed to the homepage with a message saying "Sorry,
+        only store owners can add products".
+    - __Product Form__ after signing in as a superuser.
+         - I tried to submit the form with a required field left unfilled, a popup appeared by the missed field asking me to fill it in.
+         - I tried to submit the form with an invalid price and was redirected back to the form with a message saying the product couldn't 
+         be added and asking me to check over the form. The price field was red and a message under it explained the number must be 
+         under 6 digits.
+         - I filled in all required fields and submitted the form. I was redirected to the product details page of the new product with
+         a success toast pop up telling me the product had been added.
+
+- __Edit products__ this page is only avaliable to superusers.
+    - __Security:__
+        - To ensure the page is secure, I tried to access the page as an anonymous user by typing the correct url, this led me to the 
+        sign in page. I signed in with a user who is not a superuser and I was directed to the homepage with a message saying "Sorry,
+        only store owners can edit products".
+    - __Product Form__ after signing in as a superuser.
+         - I selected a product to edit, the form loaded prefiled with the product information and a message telling me the name of the 
+         product I am editing, I deleted a field and tried to submit the form. A pop up appeared at the missed field telling me to fill it in.
+         - I filled in a field with invalid information, when the page reloaded I got a message telling me the product couldn't be added and 
+         to recheck the form.
+         - I filled in the form with all valid information and submitted it, I was directed to the product's product detail page, with a 
+         success toast telling me the product had been updated. The changes made in the form were correctly reflected in the product details.
+    - __Preview image__:
+        Preview image appeared as expected. Selecting the clear checkbox removed the image when the form was processed. 
+
     
 ### Shopping Bag page:
     - __Products:__ 
@@ -433,6 +462,123 @@ toggle menu was working well.
      led me to the community page. The result was the same for both authenticated and anonymous users.
     - When page is loaded from user profile for a past order, the link avaliable is for return to the profile page, I selected 
     this and was redirected back to the profile page successfully.
+
+### Community pages:
+
+- __Community page__ 
+    - As an anonymous user, when the page is loaded, a toast appeared informing me that I must log in to add posts or comments.
+    - __Search posts__: functionality is the same for authorised or anonymous users.
+        -__Functionality__:
+         - I typed the word 'cones', which appears in one post, into the search bar and checked to see the resulting post had the 
+         word included. The reset search button appeared and when pressed let to the main community page.
+         - I typed the word 'henna', which appears in two posts, into the search bar and checked to see the correct posts were 
+         displayed. 
+    - __Add Post button__:
+        - __Functionality:__as an anonymous user
+            - I selected the Add Post button and was redirected to the login page.
+        - __Functionality:__as an authenticated user
+            - I selected the Add Post button and was redirected to the Add a post page.
+    - __Posts__ : functionality is the same for anonymous and authorised users.
+        - __Functionality:__ Posts appeared correctly and the "Read more" button at the end of the post led to the correct
+         post detail page.
+    - __Like and comment count__:
+        - __Functionality:__ Like and comment count for the posts were accurate.
+    - __Edit/Delete Buttons__
+        - __Functionality__: as anonymous user
+            - The buttons for edit/deleting a post were not present. When tying the correct url to edit a post, I was redirected 
+            to the login page.
+        - __Functionality:__ as a logged in user
+            - The buttons for edit/deleting a post appeared under posts created by the logged in user.
+            - Selecting the edit button led to the edit post page with the post details prefilled.
+            - Next I tried to access the edit page for a post the current user had not created by typing the url, I 
+            was redirected back to the homepage and an error toast message appeared telling me I can only edit my own posts.
+            - Next I created a test post to test the delete functionality. I selected the delete button and was redirected to 
+            the community page, where the post was no longer visible and a toast message appeared telling me the post had been 
+            deleted.
+
+- __Post detail page__ 
+    - __Post heading, image and body__: visible to all users
+        - __Functionality__:
+    - __Like button__: 
+        - __Functionality__: As an anonymous user
+            - I was able to see the like count but clicking on it did nothing.
+        - __Functionality__: As an authorised user
+             - I was able to see the like count. I clicked the likes and the page reloaded with a success toast telling me the 
+             like had been added and the like count had increase.
+             - I selected the button again and the page reloaded with a success toast telling me I had unliked the post,
+             the unlike was reflected in the like today.
+    - __Comment button and form__:
+        - __Functionality__: As an anonymous user
+            - I was able to see the comment count but clicking on it did nothing.
+        - __Functionality__: As an authorised user
+             - I was able to see the comment count. I clicked on it and a form appeared at the bottom of the screen saying "Add Comment"
+             with a textbox and post button. 
+             - I tried to submit the form without adding any content. The page reloaded with an error toast appearing in the corner
+             saying that the comment couldn't be added and I should recheck my form. 
+             - I filled in the form and selected the post button, the page reloaded with a success message saying "Comment Added" and 
+             the comment was displayed in the comments section. 
+    - __Comments__: 
+        - __Functionality__: to test this I added comments from a general user, the post creator and a superuser.
+         - The comments were coloured according to the category of user described above.
+        - __Edit/Delete buttons__ are only visible to logged in users who are the comment creators and delete is also 
+        avaliable for superusers.
+            - __Functionality__: as a user with no comments
+                - I was not able to access any of the edit/delete buttons for any of the comments.
+            - __Functionality__: as a user with a comment on the post
+                - the edit/delete links were avaliable at the bottom of my comment. 
+                - I selected the edit button which opened the comment form underneath my comment with the text filled in.
+                - I deleted the text and tried to submit the form, I was redirected back to the post detail page with an error toast 
+                saying the comment update failed and to recheck the form. I checked in the comments if the comment had been updated and 
+                it had not.
+                - I made an adjustment to comment and selected the post button. The page reloaded with a success toast telling me
+                the comment had been updated and I could see in the comments that the content had changed.
+                - Next I pressed the delete button, the page reloaded with a success message saying the comment had been deleted.
+                 I checked the comments and it was no longer displayed.
+            - __Functionality__: as a superuser
+                - Delete links were avaliable under all comments. I pressed one of the delete links and the page reloaded with a 
+                 toast success message saying the comment was deleted. I checked the comments and it was no longer displayed.
+        
+- __Add post page__: The page is only avaliable to logged in users, anonymous users are redirected to login.
+    - __Post Form__:
+        - __Functionality__:
+            - I tried to add a post with a requried field with no input, a popup appeared by the input telling me to fill it in.
+            - I tried to add a post with no image (not required), and was redirected to the community page with a success toast 
+            telling me the post has been added. I checked the posts and it was displayed.
+            - I added a post with an image, and was redirected to the community page with a success toast saying the post was added.
+            I checked all posts to find the post had been created.
+
+- __Edit post page__: The page can only be opened by the post creator, if the correct url is written for editing a post but the user
+is not the post creator, they are redirected to the homepage with a toast error message appearing explaining they can only edit their
+own posts.
+    - __Post Form__
+    - __Functionality__:
+            - The form is prefilled with the post details and a toast message appears letting me know the post name and confirming 
+            that I am editing it.
+            - I tried to submit the form without any content on a required field. A popup appeared by the missed field asking me to
+            fill it in. 
+            - I filled in the missed field with an adjustment and submitted the form. I was redirected to the community page 
+            with a success toast telling me the post had been updated. I then selected the post to find the adjustment had been made.
+
+### __Profile page:__ this page can only be accessed by authenticated users, anonymous users who try to access it by typing the
+    correct url are redirected to the sign in page.
+    - __User Profile Form:__
+        - __Functionality__: this form is optional so the form can be submitted even if not fully filled. 
+         - I filled in the form with some delivery details and submitted the form. The page reloaded with the details in place 
+         and a success toast telling me my profile had been updated. 
+    - __Order Summary__
+        - __Functionality__:
+         - I made several purchases and reopened the profile page. I opened the order history drop down and found the orders with 
+         the correct details. 
+         - I selected an order and was directed to the checkout success page with an info toast telling me I was viewing a previous 
+         order and that a confirmation email was sent on the order date.
+    - __Liked Posts__
+        - __Functionality__:
+         - From the community page, I liked several posts. I went back to the profile page and opened the liked post drop down where 
+         I found the names of the liked posts with a delete cross link next to each one. 
+          - I selected the cross on one of the posts and was redirected to the post detail page for the post with a message telling me 
+          that the post has been unliked. I returned to the profile page and checked the liked posts, the post heading was no longer 
+          displayed.
+
 
 ## Bugs
 
