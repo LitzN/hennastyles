@@ -600,9 +600,19 @@ own posts.
 
 ## Bugs
 ### Fixed Bugs:
-    - Checkout form save info function.
+    - Checkout form save info function: When submitting the checkout page as an authenticated user, the user profile information 
+    was being saved without the save info box being checked. I eventually found the problem in the checkout view where I was had 
+    added used the wrong name for the save info checkbox (save_info instead of save-info) so the value wasn't being read. 
+    After adjusting this the user profile information was only saved if the box is checked.
 ### Bugs left unfixed:
- - Shopping bag quantity selector 
+    - Shopping bag quantity selection: When adjusting product quantity from the shopping bag page, the input was not being limited 
+    to the minimum/maximum values despite the input itself having those set. The javascript used to disable the buttons at specific
+    values is the same as the javascript used in the product detail page to perform the same function, where it is fully functional. 
+    Users are able to set the value to below zero, however when they do the product is removed. They are also able to set the quantity 
+    to over 99, this will be reflected in the total so it is unlikley a user could go through the whole payment process without noticing 
+    their mistake. I worked with a tutor to try to resolve this issue, however when using google developer tools to try to understand where 
+    the javascript was failing, the javascript worked fine. When the developer tools were closed, the issue persisted so it remained 
+    unclear where the problem was coming from. I was advised by the tutor to list this in the bugs section. 
 
 
 ## Deployment
