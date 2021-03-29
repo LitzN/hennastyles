@@ -304,20 +304,20 @@ VALIDATOR RESULTS
     - __Responsive design:__ The buttons stacked on mobile screens and where displayed side by side on tablet and laptop.
     
 ### Products page
-    - __Sorting dropdown selector__ to test this I selected each option from the product sorting drop down to see the results.
-        -__Functionality:__ The sorting worked for all of the sorting options (price, category and name). The results were organised
-        as selected. The selector was functional no matter what the category of products currently being displayed where or when the product results 
-        were from a search query. The 'product home' button appeared as expected when product sorting or filtering had taken place and 
-        reset the product page when pressed.
-    - __Product Results__ 
-        -__Functionality:__ was tested by ensuring all product information was appearing correctly. I pressed the link to the product 
-        category under each product which led to the products page, displaying all products in that category. I pressed on the product
-        image which led to the product's details page.
-        -__Responsive Design:__ I viewed the products page on different screen sizes. The products appeared in a row of four on extra large
-         screens, three in a row on laptops, two on tablets and one per row on mobile screens. 
-    - __Edit delete buttons for superuser__ to test this I logged into the site as a superuser, the products edit/delete links were under
-        all the products and led to the edit page for that product with the information prefilled. I added a test product and was able to 
-        delete it using the delete link.
+- __Sorting dropdown selector__ to test this I selected each option from the product sorting drop down to see the results.
+    -__Functionality:__ The sorting worked for all of the sorting options (price, category and name). The results were organised
+    as selected. The selector was functional no matter what the category of products currently being displayed where or when the product results 
+    were from a search query. The 'product home' button appeared as expected when product sorting or filtering had taken place and 
+    reset the product page when pressed.
+- __Product Results__ 
+    -__Functionality:__ was tested by ensuring all product information was appearing correctly. I pressed the link to the product 
+    category under each product which led to the products page, displaying all products in that category. I pressed on the product
+    image which led to the product's details page.
+    -__Responsive Design:__ I viewed the products page on different screen sizes. The products appeared in a row of four on extra large
+        screens, three in a row on laptops, two on tablets and one per row on mobile screens. 
+- __Edit delete buttons for superuser__ to test this I logged into the site as a superuser, the products edit/delete links were under
+    all the products and led to the edit page for that product with the information prefilled. I added a test product and was able to 
+    delete it using the delete link.
 
 - __Product Details__ to test this I repeated the procedure below with a product with no colour options and one with colour option.
     - __Large product image and product details__ 
@@ -381,28 +381,28 @@ VALIDATOR RESULTS
 
     
 ### Shopping Bag page:
-    - __Products:__ 
-        - __Functionality:__ I added three items to the bag with colours and without and the right products, quantities and colours were
-        displayed on the shopping bag page.
-        - __Responsive Design:__ The product in the shopping bag are displayed through a table on larger screens with the totals due and checkout 
-        button below the summary. On smaller screens, the totals and checkout button are at the top of the page and the summary is displayed below 
-        this so a user doesn't have to scroll all the way to complete their purchase.
-    - __Update/Delete buttons__ 
-        - __Functionality:__
-        - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
-        appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
-        total asjusted accordingly.
-        - When trying to set the values above and below the maximum values set on the quantity input, the order was still processed despite 
-        the javascript appearing on the page and being the same as the fully functional quantity selector on the product details page. When 
-        the value is set below one the product is removed from the page but users can add over 99 of the product to the bag. This will be 
-        reflected in the price which should alert the user. For more on this issue, please view the Bugs section.
-        - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
-        product was no longer on the shopping bag page and the total value adjusted correctly.
-    - __Secure Checkout button__ 
-        -__Functionality__:
-        - I pressed the checkout button with one item in the shopping bag and was directed to the checkout page with the relevant 
-        product in the order summary.
-        - I opened the shopping bag page with no products in the bag and the button wasn't displayed.
+- __Products:__ 
+    - __Functionality:__ I added three items to the bag with colours and without and the right products, quantities and colours were
+    displayed on the shopping bag page.
+    - __Responsive Design:__ The product in the shopping bag are displayed through a table on larger screens with the totals due and checkout 
+    button below the summary. On smaller screens, the totals and checkout button are at the top of the page and the summary is displayed below 
+    this so a user doesn't have to scroll all the way to complete their purchase.
+- __Update/Delete buttons__ 
+    - __Functionality:__
+    - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
+    appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
+    total asjusted accordingly.
+    - When trying to set the values above and below the maximum values set on the quantity input, the order was still processed despite 
+    the javascript appearing on the page and being the same as the fully functional quantity selector on the product details page. When 
+    the value is set below one the product is removed from the page but users can add over 99 of the product to the bag. This will be 
+    reflected in the price which should alert the user. For more on this issue, please view the Bugs section.
+    - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
+    product was no longer on the shopping bag page and the total value adjusted correctly.
+- __Secure Checkout button__ 
+    -__Functionality__:
+    - I pressed the checkout button with one item in the shopping bag and was directed to the checkout page with the relevant 
+    product in the order summary.
+    - I opened the shopping bag page with no products in the bag and the button wasn't displayed.
 
 ### Checkout page:
 - __Responsive Design:__
@@ -574,38 +574,38 @@ own posts.
             - I filled in the missed field with an adjustment and submitted the form. I was redirected to the community page 
             with a success toast telling me the post had been updated. I then selected the post to find the adjustment had been made.
 
-### __Profile page:__ this page can only be accessed by authenticated users, anonymous users who try to access it by typing the
-    correct url are redirected to the sign in page.
-    - __Responsive Design:__ On large screens the personal data form appears on the left and the order summary and liked posts
+### __Profile page:__  
+- This page can only be accessed by authenticated users, anonymous users who try to access it by typing the correct url are redirected to the sign in page.
+- __Responsive Design:__ On large screens the personal data form appears on the left and the order summary and liked posts
     on the right. On screen sizes below tablet, the order history and liked posts appear above the user details form so users 
     don't have to scroll through the whole form to find those options.
-    - __User Profile Form:__
-        - __Functionality__: this form is optional so the form can be submitted even if not fully filled. 
-         - I filled in the form with some delivery details and submitted the form. The page reloaded with the details in place 
-         and a success toast telling me my profile had been updated. 
-    - __Order Summary__
-        - __Functionality__:
-         - I made several purchases and reopened the profile page. I opened the order history drop down and found the orders with 
-         the correct details. 
-         - I selected an order and was directed to the checkout success page with an info toast telling me I was viewing a previous 
-         order and that a confirmation email was sent on the order date.
-    - __Liked Posts__
-        - __Functionality__:
-         - From the community page, I liked several posts. I went back to the profile page and opened the liked post drop down where 
-         I found the names of the liked posts with a delete cross link next to each one. 
-          - I selected the cross on one of the posts and was redirected to the post detail page for the post with a message telling me 
-          that the post has been unliked. I returned to the profile page and checked the liked posts, the post heading was no longer 
-          displayed.
+- __User Profile Form:__
+    - __Functionality__: this form is optional so the form can be submitted even if not fully filled. 
+        - I filled in the form with some delivery details and submitted the form. The page reloaded with the details in place 
+        and a success toast telling me my profile had been updated. 
+- __Order Summary__
+    - __Functionality__:
+        - I made several purchases and reopened the profile page. I opened the order history drop down and found the orders with 
+        the correct details. 
+        - I selected an order and was directed to the checkout success page with an info toast telling me I was viewing a previous 
+        order and that a confirmation email was sent on the order date.
+- __Liked Posts__
+    - __Functionality__:
+        - From the community page, I liked several posts. I went back to the profile page and opened the liked post drop down where 
+        I found the names of the liked posts with a delete cross link next to each one. 
+        - I selected the cross on one of the posts and was redirected to the post detail page for the post with a message telling me 
+        that the post has been unliked. I returned to the profile page and checked the liked posts, the post heading was no longer 
+        displayed.
 
 
 ## Bugs
 ### Fixed Bugs:
-    - Checkout form save info function: When submitting the checkout page as an authenticated user, the user profile information 
+- Checkout form save info function: When submitting the checkout page as an authenticated user, the user profile information 
     was being saved without the save info box being checked. I eventually found the problem in the checkout view where I was had 
     added used the wrong name for the save info checkbox (save_info instead of save-info) so the value wasn't being read. 
     After adjusting this the user profile information was only saved if the box is checked.
-### Bugs left unfixed:
-    - Shopping bag quantity selection: When adjusting product quantity from the shopping bag page, the input was not being limited 
+### Bugs: not yet fixed:
+- Shopping bag quantity selection: When adjusting product quantity from the shopping bag page, the input was not being limited 
     to the minimum/maximum values despite the input itself having those set. The javascript used to disable the buttons at specific
     values is the same as the javascript used in the product detail page to perform the same function, where it is fully functional. 
     Users are able to set the value to below zero, however when they do the product is removed. They are also able to set the quantity 
@@ -615,10 +615,35 @@ own posts.
     unclear where the problem was coming from. I was advised by the tutor to list this in the bugs section. 
 
 
-## Deployment
+## __Deployment__
 
-MEDIA : 
-MAIN BORDER USED<a href="https://www.freepik.com/vectors/frame">Frame vector created by pch.vector - www.freepik.com</a>
-LINK FOR SHOP BUTTON HENNA CONE : https://bluelotushenna.com/product/henna-cone-regular-1-oz/
-LINK FOR BORDER: Image by <a href="https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177">Gordon Johnson</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177">Pixabay</a>
-HOME IMAGE: https://www.salongold.co.uk/wp-content/uploads/2019/04/henna-art-1920x1080.jpg
+## __Media :__ 
+[Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector   
+[Cone image on homepage](https://bluelotushenna.com/product/henna-cone-regular-1-oz/) by Blue Lotus Henna  
+[Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177)  
+[Home image](https://www.salongold.co.uk/wp-content/uploads/2019/04/henna-art-1920x1080.jpg)  
+[Paintbrush community post](https://www.pexels.com/photo/man-in-black-sunglasses-getting-a-henna-tattoo-3949271/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Darwin Alwan](https://www.pexels.com/@darwisalwan?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)  
+[Henna duration post image](https://www.pexels.com/photo/hands-tattooed-with-henna-4225869/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Natalie](https://www.pexels.com/@natalie-320378?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+
+ __Product images are detailed below.__  
+  All images were found on amazon.  
+ [Traditional Mini Stencil pack](https://images-na.ssl-images-amazon.com/images/I/81fzGjdErvL._AC_SX679_.jpg) from [Howaf](https://www.amazon.co.uk/Konsait-Temporary-Stencils-Reusable-Butterfly/dp/B07VYWMQ9M/ref=gp_aw_ybh_a_58?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Foot design Pack](https://images-na.ssl-images-amazon.com/images/I/61rfA62DcvL._AC_.jpg) from [glaryyears](https://www.amazon.co.uk/Sheets-Pendant-Jewelry-Stencil-Template/dp/B071JBJPJW/ref=gp_aw_ybh_a_59?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Stencil luxe pack](https://images-na.ssl-images-amazon.com/images/I/61GYSfR%2BawL._AC_.jpg) from [Wudong](https://www.amazon.co.uk/Tattoo-Stencils-Reusable-Temporary-Template/dp/B083GJH1P5/ref=gp_aw_ybh_a_63?_encoding=UTF8&psc=1&refRID=SN0PBDC9TFJPS0FX6SBZ)  
+ [Floral mini stencil pack](https://images-na.ssl-images-amazon.com/images/I/81M1Kxms6qL._AC_SX679_.jpg) from [Howaf](https://www.amazon.co.uk/Konsait-Temporary-Stencils-Reusable-Butterfly/dp/B07VYWMQ9M/ref=gp_aw_ybh_a_58?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Stencils Luxe hand design](https://images-na.ssl-images-amazon.com/images/I/61DCceOgJ6L._AC_.jpg) from [Mehndi Store](https://www.amazon.co.uk/XMASIR-Pieces-Stencil-Temporary-Templates/dp/B07TJRT8HD/ref=gp_aw_ybh_a_62?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Mini hand design pack](https://images-na.ssl-images-amazon.com/images/I/719n9ojwlTL._AC_SL1000_.jpg) from [Wonderave](https://www.amazon.co.uk/Stencils-Temporary-Temples-Reusable-Stickers/dp/B08HQ26BJ1/ref=gp_aw_ybh_a_60?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Stencil standard pack](https://images-na.ssl-images-amazon.com/images/I/819%2Bh49pkaL._AC_SX450_.jpg) from [Devil Face](https://www.amazon.co.uk/Tattoo-Stencil-Temporary-Temples-Sheets/dp/B07SW6TZLH/ref=gp_aw_ybh_a_61?_encoding=UTF8&psc=1&refRID=NTP903QWV42689H1K2S2)  
+ [Eyebrow stencils](https://images-na.ssl-images-amazon.com/images/I/719gm2aIj1L._AC_SX425_.jpg) from [iuyuandd](https://www.amazon.co.uk/nuoshen-Stencils-Shapeing-Eyebrows-Grooming/dp/B07ZKFVTSP/ref=sr_1_5?dchild=1&keywords=eyebrow+stencils&qid=1617054804&sr=8-5)  
+ [Mini henna stamps](https://images-na.ssl-images-amazon.com/images/I/61v38YqqEgL._AC_SX522_.jpg) from [FABSELLER](https://www.amazon.co.uk/Pieces-Wooden-Vintage-Pattern-Scrapbooking/dp/B07VD6R2Y2/ref=sr_1_97_sspa?crid=26QN0Z95UU5LK&dchild=1&keywords=royal+kraft+wooden+stamps&qid=1617054683&sprefix=royal+kraft+%2Caps%2C156&sr=8-97-spons&psc=1&smid=A18DQB0CKJG1W3&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSTJLREc2NjZOOFpBJmVuY3J5cHRlZElkPUEwNDk2NDk3MTg5REdBNTlYN0ZURiZlbmNyeXB0ZWRBZElkPUEwMjY5NTI0VlZYQk1NU1JYUlBGJndpZGdldE5hbWU9c3BfYnRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==)  
+ [RK Mandala henna stamps](https://images-na.ssl-images-amazon.com/images/I/81ir3vJzhxL._AC_SX522_.jpg) from [Royal Kraft](https://www.amazon.co.uk/Royal-Kraft-Designer-Mandala-Printing/dp/B073JPZWTF/ref=sr_1_8?crid=26QN0Z95UU5LK&dchild=1&keywords=royal+kraft+wooden+stamps&qid=1617054576&sprefix=royal+kraft+%2Caps%2C156&sr=8-8)  
+ [RK Bracelet border henna stamps](https://images-na.ssl-images-amazon.com/images/I/81HmStqVAhL._AC_SY450_.jpg) from [Royal Kraft](https://www.amazon.co.uk/Royal-Kraft-Textile-Innovative-Printing/dp/B07DJP5ZPZ/ref=sr_1_2?dchild=1&keywords=royal+kraft+10+wooden+stamps+border&qid=1617054743&sr=8-2)  
+ [Pre-inked thread](https://images-na.ssl-images-amazon.com/images/I/51jMUoPAx9L._AC_SY450_.jpg) from [Cheeky Cow](https://www.amazon.co.uk/Microblading-Micronumbing-Mapping-threading-Pre-inked/dp/B07SSK8XMM/ref=sr_1_10?crid=2BN18JDR5OW5S&dchild=1&keywords=pre+inked+eyebrow+mapping+string&qid=1617054509&sprefix=pre+inked+eyebrow+%2Caps%2C148&sr=8-10)  
+ [Empty Cones](https://images-na.ssl-images-amazon.com/images/I/41cbcCbrpuL._AC_.jpg) from [MyHenna](https://www.amazon.co.uk/empty-Henna-Tattoo-Temporary-tattoos/dp/B01LXOMMFN/ref=sr_1_3?dchild=1&keywords=empty+henna+cones&qid=1617054471&sr=8-3)  
+ [Microdesign kit](https://images-na.ssl-images-amazon.com/images/I/61TY%2BjmcmxL._AC_SX522_.jpg) from [KUKU ZHEN](https://www.amazon.co.uk/Precision-Applicator-Purpose-Dropper-Quilling/dp/B07SHSJXVW/ref=sr_1_11?dchild=1&keywords=precision+henna+kit&qid=1617054424&sr=8-11)  
+ [3 NFH cones](https://images-na.ssl-images-amazon.com/images/I/61pYfHFMRiL._AC_SY355_.jpg) from [New Fashion House](https://www.amazon.co.uk/Organic-Henna-Mehindi-Cones-Chemicals/dp/B08D6TT4TD/ref=sr_1_4?dchild=1&keywords=new+fashion+house+henna+cones&qid=1617054341&sr=8-4)  
+ [12 NFH cones](https://images-na.ssl-images-amazon.com/images/I/71PWlEyB6wL._AC_SY450_.jpg) from [New Fashion House](https://www.amazon.co.uk/Individual-Organic-Mehindi-Chemicals-Guaranteed/dp/B08D6S52TJ/ref=sr_1_1?dchild=1&keywords=new+fashion+house+henna+cones+12&qid=1617054396&sr=8-1)  
+ [12 kalveri cones](https://images-na.ssl-images-amazon.com/images/I/71kkKvxw5BL._AC_SY450_.jpg) from [Kalveri](https://www.amazon.co.uk/Natural-Ready-Organic-Temporary-Tattoo/dp/B01ASUL4ZQ/ref=sr_1_8?dchild=1&keywords=kaveri+cones&qid=1617054249&sr=8-8)  
+ [9 mix colour cones](https://images-na.ssl-images-amazon.com/images/I/618BS8DunJL._AC_SX679_.jpg) from [Vstion](https://www.amazon.co.uk/Tattoos-Henna-4Color-Temporary-Template-Applicator/dp/B07KLWSRW3/ref=sr_1_10?dchild=1&keywords=vstion&qid=1617054180&sr=8-10)  
+ [Henna powder for hair:Yogis gift](https://images-na.ssl-images-amazon.com/images/I/61vOjrDLMnL._AC_SY879_.jpg) from [Yogis Gift](https://www.amazon.co.uk/s?k=YOGI%E2%80%99S+GIFT+%E2%80%93+Celebrating+health)  
+ [Henna powder for body art](https://images-na.ssl-images-amazon.com/images/I/81j6uy3tZ9L._AC_SX450_.jpg) from [Evena](https://www.amazon.co.uk/s?k=Evenea&ref=bl_dp_s_web_17365936031)  
