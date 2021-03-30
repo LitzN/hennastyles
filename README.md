@@ -622,7 +622,7 @@ issue. I restarted the project, moved the code and was able to deploy the site.
 ## __Deployment__
 
 The project was created with Django and Gitpod and pushed to Github after each major change. Due to a bug when initially creating the project 
-with django (outlined in the Bugs section) please see commits before deployment here: [First Repository](https://github.com/LitzN/MS4-Henna/commits/master)
+with django (outlined in the Bugs section) please see commits before deployment here: [First Repository](https://github.com/LitzN/MS4-Henna/commits/master)  
 The master branch of this repository, was used as a source for deployment on Heroku. The development version is the same as the deployed version.
 
 ### __Steps taken to deploy__:
@@ -660,7 +660,7 @@ this project:
     `python3 manage.py createsuperuser`
     and fill in a name, email and password for the superuser.
 
-9. Back in the settings.py file, replace the dj_database_url database setting back to the original configuration so
+9. Back in the django settings file, replace the dj_database_url database setting back to the original configuration so
 the database URL is not pushed to github.
 
 10. Commit your changes.
@@ -677,11 +677,11 @@ postgress for the deployed project. Use the database_url variable in your apps c
     web: gunicorn your_app_name.wsgi:application
     ```
 
-14. Login to heroku cli again by writing heroku login and filling the login requirements.
+14. Login to heroku CLI again by writing heroku login and filling the login requirements.
 Next, turn off the collect static function on heroku by typing into the gitpod command line:   
 `heroku config:set DISABLE_COLLECTSTATIC=1 --app your_app_name`
 
-15. In settings.py, find the allowed hosts section and add 'your_app_name.herokuapp.com' and 'localhost' 
+15. In your django settings file, find the allowed hosts section and add 'your_app_name.herokuapp.com' and 'localhost' 
 so the project can be hosted by heroku and the local host.
 
 16. Add and commit your changes and push to github.
@@ -702,13 +702,106 @@ the correct repository.
 21. Set up a secret_key for django in your heroku apps configuration variables. 
 You can generate a new secret key by using [mini web tool](https://miniwebtool.com/django-secret-key-generator/).
 
-22. In your django project's settings.py, replace the secret key with an environment variable which 
+22. In your django project's settings file, replace the secret key with an environment variable which 
 which holds the secret key you just created.
 
 23. Commit your changes and push to github. This should trigger a new deployment from heroku. 
 
 ### __Steps to add static files with AWS__
 
+1. Go to the [aws website](https://aws.amazon.com/) and select 'Create an AWS account' and 
+fill out your personal details. You will be asked for payment details.
+
+2. Sign into the aws website by accessing AWS Management console from the 'My account' link next to
+the create an account button.
+
+3. Select services in the navigation and type s3 and open it. 
+
+4. When S3 is open, look for an option on the right to 'Create bucket'. Select this option.
+
+5. To create the bucket, fill out the form with the name, closest region and unblock public access.
+Select create bucket. You should be redirected to the S3 page.
+
+6. Select the bucket you just created from the menu and find the bucket's properties tab.
+Here you can turn on Static web hosting by selecting this option and adding some default files to the 
+form.
+
+7. Select the permissions tab in the bucket's page and set the CORS configuration to link the bucket 
+with the heroku app, and save.
+
+8. Select the Bucket Policy tab in the bucket's page and create a security policy for the bucket by 
+selecting the policy generator link, selecting the options:  
+policy type: S3 bucket policy, principal: *, action: GetObject and adding your buckets amazon resource name (ARN).
+Generate the policy.
+
+9. Copy the resulting policy into your bucket's Bucket Policy tab and add /* to the end of the resource key 
+to allow access for the whole site. Save the policy.
+
+10. In the Bucket's page, select the 'Access Control List'. Here find the public access section and set the 
+list objects permission for everyone.
+
+11. Next, go to the AWS Management console and select services, and find IAM and open.
+
+12. Under Access management in the IAM menu, select Groups. Create a new group for the 
+project.
+
+13. In the Access management menu, select policies and then find 'Add Policy' to add the policy used to access your bucket.
+
+14. Select the JSON tab and then the 'import managed policy' link. Choose the AmazonS3FullAccess policy.
+Then add the bucket's ARN to the 'Resource' section of this policy and the ARN/*. Then select Review Policy and 
+add the policy.
+
+15. Go to groups in the IAM menu, select the group you created. In the group, find the 'Attach policy' button and search for 
+the policy you just created and attach it to the group. 
+
+16. Next go to the users page in the IAM menu and select 'Add user'. Create a user with programmatic access and add them to 
+the group. Download the csv file avaliable when the user is successfully created, this contains the access keys for the 
+user and will not be avaliable for download later.
+
+17. Now in your gitpod workspace install packages: boto3 and django-storages and add to requiremnets file.
+    `pip3 install boto3`  
+    `pip3 install django-storages`  
+    `pip3 freeze > requirements.txt`  
+
+18. In the settings file of your django project, find the installed apps section and add 'storages' to it.
+
+19. Again in the settings file, use an if statement to check if the variable 'USE_AWS' is in the environment. 
+Here , add the storage bucket name, the s3 region name and aws access key id and the aws secret key(from the csv file), 
+the last two must be set in the environment for security. Next set the custom s3 domain using:
+` f'{your_bucket_name}.s3.amazonaws.com `.
+
+20. Open your app in heroku and add the aws access key id and secret key to the environment variables and add 
+USE_AWS with a value of true. You can also remove the disable collect static variable as django should now collect 
+the static files and upload to AWS s3.
+
+21. Back in your gitpod workspace add a custom storages folder and import your settings and 
+`from storages.backends.s3boto3 import S3Botot3Storage`. Here add the following code to create the 
+classes for the static and media storages and give them a location: 
+```
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+22. In the settings file of your django project, under the USE_AWS statement, add the static and media
+file storage and location variables.
+
+23. Next specify the urls to be used for static and media files.
+```
+STATIC_URL = f'https://{S3_DOMAIN_VAR}/{STATICFILES_LOCATION}'
+MEDIA_URL = f'https://{S3_DOMAIN_VAR}/{MEDIAFILES_LOCATION}'
+```
+24. Add, commit and push the changes and your static files should be added to your Bucket.
+
+25. Go to your bucket and create a new folder called media. Here you can upload your media files and grant 
+public read access to them.
+
+26. Open stripe and find the publishable and secret keys and add them to your heroku app configuration variables.
+
+27. Back in Stripe, select the webhooks section and add a new endpoint for the deployed site. Next add the signin secret
+key products by stripe for the webhook to your Heroku configuration variables.
 
 ## __Media :__ 
 [Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector on [freepik](https://www.freepik.com/)
