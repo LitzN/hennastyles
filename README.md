@@ -400,10 +400,8 @@ result:
     - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
     appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
     total asjusted accordingly.
-    - When trying to set the values above and below the maximum values set on the quantity input, the order was still processed despite 
-    the javascript appearing on the page and being the same as the fully functional quantity selector on the product details page. When 
-    the value is set below one the product is removed from the page but users can add over 99 of the product to the bag. This will be 
-    reflected in the price which should alert the user. For more on this issue, please view the Bugs section.
+    - The input was set at one and I pressed the minus button to try to reduce the quantity, the value stayed at one, as planned.
+    - I set the value of the input to 99 and pressed the plus button, the value stayed at 99, as expected.
     - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
     product was no longer on the shopping bag page and the total value adjusted correctly.
 - __Secure Checkout button__ 
@@ -616,7 +614,7 @@ issue. I restarted the project, moved the code and was able to deploy the site.
     was being saved without the save info box being checked. I eventually found the problem in the checkout view where I was had 
     added used the wrong name for the save info checkbox (save_info instead of save-info) so the value wasn't being read. 
     After adjusting this the user profile information was only saved if the box is checked.
-### Bugs: not yet fixed:
+
 - Shopping bag quantity selection: When adjusting product quantity from the shopping bag page, the input was not being limited 
     to the minimum/maximum values despite the input itself having those set. The javascript used to disable the buttons at specific
     values is the same as the javascript used in the product detail page to perform the same function, where it is fully functional. 
@@ -624,10 +622,8 @@ issue. I restarted the project, moved the code and was able to deploy the site.
     to over 99. I worked with a tutor to try to resolve this issue, however when using google developer tools to try to understand where 
     the javascript was failing, but the issue remained unclear where the problem was coming from. I was advised by the tutor to list this 
     in the bugs section. 
-    I added code to the javascript handling the increase button, to try to disable it past a certain number which made the input stop allowing 
-    increase in quantity after 99. I tried to use similar code for the decrease button but it didn't have the same effect and the input could 
-    still be set below 1.
-
+    I added code to the javascript handling the increase button function, to try to disable it past a certain number which stopped the button
+    affecting the number of the input after this value. The same code was used to disable the decrease button for values under 1.
 
 ## __Deployment__
 
