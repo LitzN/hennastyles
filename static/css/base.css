@@ -177,20 +177,6 @@ body{
     min-height:20rem;
 }
 
-.button-text{
-    position: absolute;
-    top: 70%;
-    left: 45%;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    transform: translate(-50%, -50%);
-    color:black;
-}
-
-.button-text:hover{
-    color:pink;
-}
-
 /*---Product pages----*/
 
 a.category-badge > span.badge:hover{
@@ -307,10 +293,6 @@ a.category-badge > span.badge:hover{
         min-height:6rem;
     }
 
-    .button-text{
-        left:40%;
-    }
-
     .prod-links{
         font-size:medium;
     }
@@ -326,16 +308,10 @@ a.category-badge > span.badge:hover{
 
 /*------MED MOBILE----------------*/
 @media screen and (max-width:376px){
-    .button-text{
-        left:45%;
-    }
+
 }
 /*------SMALL MOBILE------------*/
 @media screen and (max-width:320px){
-    .button-text{
-        top:65%;
-        left:50%;
-    }
 
     .product-buffer{
         min-height:6rem;
@@ -344,10 +320,6 @@ a.category-badge > span.badge:hover{
 
 /*-----TABLET--------------*/
 @media screen and (max-width: 768px){
-    .button-text{
-        top: 50%;
-        left: 50%;
-        font-size: 2rem;}
 
     .product-buffer{
         min-height:9rem;
@@ -382,12 +354,6 @@ a.category-badge > span.badge:hover{
         padding-top: 164px;
     }
 
-    .button-text{
-        top: 58%;
-        left: 55%;
-        font-size: 2rem;
-    }
-
     .product-buffer{
     min-height:10rem;
     }
@@ -397,10 +363,6 @@ a.category-badge > span.badge:hover{
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 80%;
-  }
-  .button-text{
-        top: 70%;
-        left: 50%;
   }
 
   .product-buffer{
