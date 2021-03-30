@@ -56,9 +56,8 @@ comparison. [Palette used](https://coolors.co/ffb6c1-d6d7d7-b27f87-210124-00171f
 - - - 
 ## Database Schema
 
-Sql was used to create this database.
-
-## ADD IMAGE OF DATABASE SCHEMA
+Sqlite was used to create the database in development and Heroku Postgres was used to store the database in production.
+![Database](documentation/screenshots/database.png)
 
 ---- 
 ## Features
@@ -226,11 +225,21 @@ post creator is allowed to edit the post so others can't tamper with their post.
  - Html validator
  - Pylint for Django
 
-## Testing
+## __Testing__
 
-VALIDATOR RESULTS
+### __Code Validation__
+- I tested HTML with the validator: [W3C](https://validator.w3.org/). The result for all pages in the project recieved the same message:
+![HTML validator results](documentation/screenshots/html-validation.PNG)
+- I tested the base css, profile and checkout css with the validator: [W3C- Jigsaw](https://jigsaw.w3.org/css-validator/), with the 
+result:  
+![CSS validator results](documentation/screenshots/css-validation.PNG)
+- I tested the javascript using the validator: [JSHint](https://jshint.com/) from products, checkout and bag apps. There were no warnings.
+- I tested the Python code using the validator: [PEP8](http://pep8online.com/). All files inside all apps of the project were tested.
+    result for all pages: ![PEP8 Result](documentation/screenshots/pep8-result.PNG)
 
-### TESTING USER STORIES NEEDS ARE MET
+
+
+### __Testing user stories are met__
 
 - As a visitor with no previous experience with henna I would like to know more about it before purchasing.
     - The homepage will address this as soon as a visitor lands on the site. The homepage will contain a link to the community 
