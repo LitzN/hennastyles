@@ -1,5 +1,4 @@
 <script>
-
     // Set max and min values
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
@@ -27,6 +26,8 @@
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
+       var nextValue = currentValue + 1;
+       if (nextValue > 99) {return false;}
        $(closestInput).val(currentValue + 1);
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
@@ -38,6 +39,8 @@
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue - 1);
+       var nextValue = currentValue - 1;
+       if (nextValue < 1) {return false;}
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
     });

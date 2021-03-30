@@ -129,9 +129,9 @@ or view the community page where they can gain some inspiration, which hopefully
     When the user is editing a product the current product image is shown as a preview.
 
 ### Shopping Bag page:
-    - __Products__ that have been added to the shopping bag are displayed along with relevant information, such as colour and quantity. 
-    - __Update/Delete buttons__ Users can adjust the quantity of an item in their bag or remove it completely.
-    - __Secure Checkout button__ takes the user to the checkout page where they can finish the transaction.
+- __Products__ that have been added to the shopping bag are displayed along with relevant information, such as colour and quantity. 
+- __Update/Delete buttons__ Users can adjust the quantity of an item in their bag or remove it completely.
+- __Secure Checkout button__ takes the user to the checkout page where they can finish the transaction.
 
 ### Checkout page:
 - __Order Summary:__ Shows the user their shopping bag and a breakdown of their order, delivery and total costs, before they complete their purchase.
@@ -189,11 +189,11 @@ the page is made aware of this through a toast popup.
     they are editing their post.
 
 ### __Profile page:__ is only avaliable when a user is authorised and they only have access to their own profile page.
-    - __User Profile Form__ allows a user to add/adjust their default shipping information to make checkout faster and easier.
-    - __Order Summary__ is originally hidden when the page is loaded. Allows the user to bring up a summary of their previous orders 
-    as well as select an order to view it's confirmation and full details.
-    - __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, 
-    they are also able to remove the like and therefore the post from their profile.
+- __User Profile Form__ allows a user to add/adjust their default shipping information to make checkout faster and easier.
+- __Order Summary__ is originally hidden when the page is loaded. Allows the user to bring up a summary of their previous orders 
+as well as select an order to view it's confirmation and full details.
+- __Liked Posts__ are orginially hidden when the page loads. Allows a user to view the heading of their liked posts so they can return to them easily, 
+they are also able to remove the like and therefore the post from their profile.
 
 ### __Security Features:__
 - All forms must be submitted with all required fields filled or they will not be put into the database
@@ -222,7 +222,7 @@ post creator is allowed to edit the post so others can't tamper with their post.
  - __AWS__ was used to store website images and static files
  - __FontAwesome__ was used for it's icons throughout the site
  - __Googlefonts__ was used for the logo font and main site font
- - Html validator
+ - __Html validator__
  - Pylint for Django
 
 ## __Testing__
@@ -236,7 +236,6 @@ result:
 - I tested the javascript using the validator: [JSHint](https://jshint.com/) from products, checkout and bag apps. There were no warnings.
 - I tested the Python code using the validator: [PEP8](http://pep8online.com/). All files inside all apps of the project were tested.
     result for all pages: ![PEP8 Result](documentation/screenshots/pep8-result.PNG)
-
 
 
 ### __Testing user stories are met__
@@ -391,7 +390,7 @@ result:
     
 ### Shopping Bag page:
 - __Products:__ 
-    - __Functionality:__ I added three items to the bag with colours and without and the right products, quantities and colours were
+  - __Functionality:__ I added three items to the bag with colours and without and the right products, quantities and colours were
     displayed on the shopping bag page.
     - __Responsive Design:__ The product in the shopping bag are displayed through a table on larger screens with the totals due and checkout 
     button below the summary. On smaller screens, the totals and checkout button are at the top of the page and the summary is displayed below 
@@ -622,10 +621,12 @@ issue. I restarted the project, moved the code and was able to deploy the site.
     to the minimum/maximum values despite the input itself having those set. The javascript used to disable the buttons at specific
     values is the same as the javascript used in the product detail page to perform the same function, where it is fully functional. 
     Users are able to set the value to below zero, however when they do the product is removed. They are also able to set the quantity 
-    to over 99, this will be reflected in the total so it is unlikley a user could go through the whole payment process without noticing 
-    their mistake. I worked with a tutor to try to resolve this issue, however when using google developer tools to try to understand where 
-    the javascript was failing, the javascript worked fine. When the developer tools were closed, the issue persisted so it remained 
-    unclear where the problem was coming from. I was advised by the tutor to list this in the bugs section. 
+    to over 99. I worked with a tutor to try to resolve this issue, however when using google developer tools to try to understand where 
+    the javascript was failing, but the issue remained unclear where the problem was coming from. I was advised by the tutor to list this 
+    in the bugs section. 
+    I added code to the javascript handling the increase button, to try to disable it past a certain number which made the input stop allowing 
+    increase in quantity after 99. I tried to use similar code for the decrease button but it didn't have the same effect and the input could 
+    still be set below 1.
 
 
 ## __Deployment__
@@ -812,7 +813,8 @@ public read access to them.
 27. Back in Stripe, select the webhooks section and add a new endpoint for the deployed site. Next add the signin secret
 key products by stripe for the webhook to your Heroku configuration variables.
 
-## __Media :__ 
+## __Credits__
+### __Media :__ 
 [Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector on [freepik](https://www.freepik.com/)
 [Cone image on homepage](https://bluelotushenna.com/product/henna-cone-regular-1-oz/) by Blue Lotus Henna  
 [Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177) on [pixabay](https://pixabay.com/)
@@ -843,3 +845,7 @@ Images from [pexels](https://www.pexels.com/):
  [9 mix colour cones](https://images-na.ssl-images-amazon.com/images/I/618BS8DunJL._AC_SX679_.jpg) from [Vstion](https://www.amazon.co.uk/Tattoos-Henna-4Color-Temporary-Template-Applicator/dp/B07KLWSRW3/ref=sr_1_10?dchild=1&keywords=vstion&qid=1617054180&sr=8-10)  
  [Henna powder for hair:Yogis gift](https://images-na.ssl-images-amazon.com/images/I/61vOjrDLMnL._AC_SY879_.jpg) from [Yogis Gift](https://www.amazon.co.uk/s?k=YOGI%E2%80%99S+GIFT+%E2%80%93+Celebrating+health)  
  [Henna powder for body art](https://images-na.ssl-images-amazon.com/images/I/81j6uy3tZ9L._AC_SX450_.jpg) from [Evena](https://www.amazon.co.uk/s?k=Evenea&ref=bl_dp_s_web_17365936031)  
+
+### Acknowledgements
+I recieved inspiration for this project from 
+I recieved guidance and assistance from the CodeInstitute support team.

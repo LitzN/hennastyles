@@ -366,7 +366,7 @@ a.category-badge > span.badge:hover{
     }
 }
 /*-----LAPTOP---------------*/
-@media screen and (max-width: 992px) {
+@media (min-width: 992px) and (max-width: 1199.98px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -403,4 +403,7 @@ a.category-badge > span.badge:hover{
         left: 50%;
   }
 
+  .product-buffer{
+      min-height:10rem;
+  }
 }
