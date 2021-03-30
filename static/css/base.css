@@ -343,7 +343,7 @@ a.category-badge > span.badge:hover{
 }
 
 /*-----TABLET--------------*/
-@media screen and (min-width: 768px){
+@media screen and (max-width: 768px){
     .button-text{
         top: 50%;
         left: 50%;
@@ -366,7 +366,7 @@ a.category-badge > span.badge:hover{
     }
 }
 /*-----LAPTOP---------------*/
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;

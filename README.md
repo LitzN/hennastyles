@@ -599,6 +599,10 @@ own posts.
 
 
 ## Bugs
+- When the project was originally created, an error was made when setting up the django project causing an extra file holding the 
+project to be created. This caused no issues during development however when I tried to deploy the project it was unsuccessful. 
+I spoke to a tutor about this who advised me to restart the whole project as it was likely this extra folder was causing the 
+issue. I restarted the project, moved the code and was able to deploy the site.
 ### Fixed Bugs:
 - Checkout form save info function: When submitting the checkout page as an authenticated user, the user profile information 
     was being saved without the save info box being checked. I eventually found the problem in the checkout view where I was had 
@@ -617,11 +621,101 @@ own posts.
 
 ## __Deployment__
 
+The project was created with Django and Gitpod and pushed to Github after each major change. Due to a bug when initially creating the project 
+with django (outlined in the Bugs section) please see commits before deployment here: [First Repository](https://github.com/LitzN/MS4-Henna/commits/master)
+The master branch of this repository, was used as a source for deployment on Heroku. The development version is the same as the deployed version.
+
+### __Steps taken to deploy__:
+
+1. Log into your Heroku account and selected the 'New' button on the homepage and then select 'Create new app' 
+from the dropdown. Add the app name and choose the region closest to you.
+
+2. Open the new app and find the resources tab on the dashboard. Here type Postgres into the search bar and download 
+Heroku Postgress for your app.
+
+3. Open your workspace in gitpod and install dj_database_url and psycopg2-binary by writing the following code into
+the command line:  
+    `pip3 install dj_database_url` and
+    `pip3 install psycopg2-binary`
+
+4. freeze the requirements by typing:
+    `pip3 freeze > requirements.txt`
+    to ensure Heroku installs all the apps required for the project.
+
+5. Open your django project settings file and import dj_database_url.
+    Next find the databases section and temporarily replace the default setting to use the dj_database_url with your postgress url.
+    ```
+    'default': dj_database_url.parse('your_postgress_url')
+    ```
+    Your postgress url can be found in your heroku app, in the setting tab's configuration variables.
+
+6. In the gitpod console, type `python3 manage.py migrate`, to make migrations in the postgress database.
+
+7. Next load fixtures to the data into the database by using the loaddata command in the gitpod command line. For 
+this project:  
+    `python3 manage.py loaddata categories`
+    `python3 manage.py loaddata products`
+
+8. Next create a superuser to login to the admin by typing:
+    `python3 manage.py createsuperuser`
+    and fill in a name, email and password for the superuser.
+
+9. Back in the settings.py file, replace the dj_database_url database setting back to the original configuration so
+the database URL is not pushed to github.
+
+10. Commit your changes.
+
+11. In the settings file, use an if statement to set the database to the django sqlite database for development and 
+postgress for the deployed project. Use the database_url variable in your apps config vars as the url.
+
+12. Install gunicorn and freeze requirements.
+    `pip3 install gunicorn`
+    `pip3 freeze > requirements.txt`
+
+13. Create a procfile and use gunicorn to serve the django app by adding to the procfile:
+    ```
+    web: gunicorn your_app_name.wsgi:application
+    ```
+
+14. Login to heroku cli again by writing heroku login and filling the login requirements.
+Next, turn off the collect static function on heroku by typing into the gitpod command line:   
+`heroku config:set DISABLE_COLLECTSTATIC=1 --app your_app_name`
+
+15. In settings.py, find the allowed hosts section and add 'your_app_name.herokuapp.com' and 'localhost' 
+so the project can be hosted by heroku and the local host.
+
+16. Add and commit your changes and push to github.
+
+17. Initialise your heroku git remote by typing: 
+    `heroku git:remote -a your_app_name`
+then push your project to heroku:
+    `git push heroku master`
+
+18. Your app should now be deployed without static files.  
+
+19. Go to your heroku account and open your app. Find the deploy tab on the dashboard and 
+set the deployment method to github by selecting this under deployment method. Then connect to
+the correct repository.
+
+20. Scroll down and find the automatic deploys section and select "Enable automatic deploys".
+
+21. Set up a secret_key for django in your heroku apps configuration variables. 
+You can generate a new secret key by using [mini web tool](https://miniwebtool.com/django-secret-key-generator/).
+
+22. In your django project's settings.py, replace the secret key with an environment variable which 
+which holds the secret key you just created.
+
+23. Commit your changes and push to github. This should trigger a new deployment from heroku. 
+
+### __Steps to add static files with AWS__
+
+
 ## __Media :__ 
-[Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector   
+[Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector on [freepik](https://www.freepik.com/)
 [Cone image on homepage](https://bluelotushenna.com/product/henna-cone-regular-1-oz/) by Blue Lotus Henna  
-[Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177)  
+[Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177) on [pixabay](https://pixabay.com/)
 [Home image](https://www.salongold.co.uk/wp-content/uploads/2019/04/henna-art-1920x1080.jpg)  
+Images from [pexels](https://www.pexels.com/):
 [Paintbrush community post](https://www.pexels.com/photo/man-in-black-sunglasses-getting-a-henna-tattoo-3949271/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Darwin Alwan](https://www.pexels.com/@darwisalwan?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)  
 [Henna duration post image](https://www.pexels.com/photo/hands-tattooed-with-henna-4225869/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Natalie](https://www.pexels.com/@natalie-320378?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
 
