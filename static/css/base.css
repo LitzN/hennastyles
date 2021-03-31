@@ -214,6 +214,10 @@ a.category-badge > span.badge:hover{
     margin-left:50%;
 }
 
+.margin-quarter{
+    margin-left:25%;
+}
+
 /*------------Shopping bag---------------- */
 
 .update-form {

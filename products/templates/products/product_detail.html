@@ -49,12 +49,12 @@
                 <!--...............ADD TO BAG FORM....................-->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
-                        <div class="form-row">
+                        <div class="form-row text-center">
                             {% with product.has_colours as c %}
                                 {% if c %}
                                     <div class="col-12">
                                         <p><strong>Colour:</strong></p>
-                                        <select class="form-control rounded w-50" name="product_colour" id="id_product_colour">
+                                        <select class="form-control rounded w-50 margin-quarter" name="product_colour" id="id_product_colour">
                                             <option value="orange">Orange</option>
                                             <option value="red">Red</option>
                                             <option value="brown" selected>Brown</option>
