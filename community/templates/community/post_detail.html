@@ -28,12 +28,12 @@
             </div>
             <div class="row d-sm-block d-md-none">
                 <div class="col">
-                    <p class="post-text">{{ post.body }}</p>
+                    <p class="post-text mx-2">{{ post.body }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8 offset-2">
-                    <p class="float-left text-muted">Created by: <i>{{ post.user_profile }}</i></p>
+                    <p class="text-muted text-center">Created by: <i>{{ post.user_profile }}</i></p>
                 </div>
             </div>
             <!--.......................LIKE/COMMENT FOR AUTHENTICATED USERS.....................-->
@@ -74,7 +74,7 @@
                 {% if post.id == comment.for_post.id %}
                 <div class="row comment {% if comment.user_profile.user.is_superuser %}gray-bg{% elif post.user_profile == comment.user_profile %}dark-pink-bg{% else %}pink-bg{% endif %}">
                     <div class="col-3">
-                        <p class="small p-0 pt-4 white"><i class="fas fa-user white fa-lg"></i><br>
+                        <p class="small p-0 pt-4 white overflow-wrap"><i class="fas fa-user white fa-lg"></i><br>
                         {{ comment.user_profile }}</p>
                     </div>
                     <div class="col-9 comment-body">

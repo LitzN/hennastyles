@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <!--....................PATTERN BORDER........................-->
     <div class="row">
-        <div class="col-12 P-0">
+        <div class="col-12 p-0">
             <div class="pattern-border border-top"></div>
         </div>
     </div>
@@ -52,7 +52,7 @@
             <!--....................PRODUCTS........................-->
             <div class="row">
                     {% for product in products %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center">
                         <div class="card h-100 border-0">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
@@ -63,13 +63,13 @@
                                 <img class="card-img-top prod-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
-                            <div class="card-body pb-0">
+                            <div class="card-body pb-0 text-center">
                                 <p class="mb-0 prod-name"><strong>{{ product.name }}</strong></p>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer bg-white pt-0 border-0 text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                        <p class="lead mb-0 text-center font-weight-bold">${{ product.price }}</p>
                                         {% if product.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="pink" href="{% url 'products' %}?category={{ product.category.name }}">

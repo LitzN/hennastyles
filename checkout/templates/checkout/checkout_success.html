@@ -14,7 +14,7 @@
         <div class="col-10 offset-1 text-center">
             <p class="welcome logo-font pink text-center mt-5">Thank you!</p>
             <hr>
-            <p> Your order information is below. A confirmation email will be sent 
+            <p class="text-small"> Your order information is below. A confirmation email will be sent 
                 to <strong>{{ order.email }}</strong>.
             </p>
         </div>
@@ -170,7 +170,7 @@
                     <span class="icon mr-2">  
                         <i class="fas fa-angle-left pink"></i>
                     </span>
-                    <span> Back to Profile</span>
+                    <span class="text-uppercase"> My Profile</span>
                 </a>
             {% else %}
                 <!--................BACK TO SHOP LINK...........................-->
@@ -178,11 +178,11 @@
                     <span class="icon mr-2">  
                         <i class="pink fas fa-angle-left mr-2"></i>
                     </span>
-                    <span> Back to Shop</span>
+                    <span class="text-uppercase"> Back to Shop</span>
                 </a>
                 <!--................COMMUNITY LINK...........................-->
                 <a href="{% url 'view_posts' %}" class="btn border-black my-2 float-right font-weight-bold pink-button">
-                    <span>Visit Community </span>
+                    <span class="text-uppercase">Visit Community </span>
                     <span class="icon mr-2">
                         <i class="fas fa-angle-right"></i>
                     </span>

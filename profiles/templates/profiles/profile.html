@@ -17,8 +17,8 @@
     </div>    
     <!--...............DEAFULT USER INFO FORM....................-->
     <div class="row">
-        <div class="col-10 col-lg-6">
-            <p class="text-center welcome-text"><strong>Default Delivery Information</strong></p>
+        <div class="col-10 offset-1 col-lg-6">
+            <p class="text-center welcome-text mt-5 mt-lg-0"><strong>Default Delivery Information</strong></p>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
@@ -78,8 +78,8 @@
                     {% if liked_posts %}
                         {% for liked in liked_posts %}
                             <div class="row">
-                                <div class="col-8">
-                                    <a href="{% url 'post_detail' liked.post.id %}" class="p-2 post-link">{{ liked.post.heading }}</a>
+                                <div class="col-8 mb-3">
+                                    <a href="{% url 'post_detail' liked.post.id %}" class="p-2 post-link mt-2 mb-2">{{ liked.post.heading }}</a>
                                 </div>
                                  <!--...............REMOVE LIKED POST FORM....................-->
                                 <div class="col-4">

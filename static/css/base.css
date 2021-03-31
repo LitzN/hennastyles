@@ -80,7 +80,7 @@ body{
 }
 
 .nav-main-link{
-    font-size:0.5rem;
+    font-size:1rem;
 }
 
 .nav-link{
@@ -210,6 +210,16 @@ a.category-badge > span.badge:hover{
     font-size:2rem;
 }
 
+.margin-center{
+    margin-left:50%;
+}
+
+/*------------Shopping bag---------------- */
+
+.update-form {
+    margin-left:25%
+}
+
 /*------------Community---------------- */
 
 .comment{
@@ -244,6 +254,10 @@ a.category-badge > span.badge:hover{
     border-radius:25px;
 }
 
+.overflow-wrap{
+    overflow-wrap:break-word;
+}
+
 
 /*------Product Form-----------*/
 .btn-file{
@@ -273,10 +287,17 @@ a.category-badge > span.badge:hover{
 }
 
 /* -------------------------------- Media Queries */
+/*------SMALL MOBILE------------*/
+@media (max-width:321px){
+
+    .product-buffer{
+        min-height:6rem;
+    }
+}
 
 /* mobile styling*/
 /*------LARGE MOBILE------------*/
-@media screen and (max-width:426px){
+@media (max-width:426px){
     .buffer{
         min-height:6rem;
     }
@@ -290,7 +311,7 @@ a.category-badge > span.badge:hover{
     }
 
     .product-buffer{
-        min-height:6rem;
+        min-height:7rem;
     }
 
     .prod-links{
@@ -303,23 +324,19 @@ a.category-badge > span.badge:hover{
 
     .delivery-banner-text{
     font-size:medium;
-}
-}
+    }
 
-/*------MED MOBILE----------------*/
-@media screen and (max-width:376px){
+    .nav-main-link{
+    font-size:0.5rem;
+    }
 
-}
-/*------SMALL MOBILE------------*/
-@media screen and (max-width:320px){
-
-    .product-buffer{
-        min-height:6rem;
+    .text-small{
+    font-size: small;
     }
 }
 
 /*-----TABLET--------------*/
-@media screen and (max-width: 768px){
+@media (min-width:427px) and (max-width: 768px){
 
     .product-buffer{
         min-height:9rem;
@@ -327,10 +344,6 @@ a.category-badge > span.badge:hover{
 
     .logo-text{
         font-size:2rem;
-    }
-
-    .nav-main-link{
-    font-size:1rem;
     }
 
     .prod-links{
