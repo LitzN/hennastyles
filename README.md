@@ -1,16 +1,28 @@
 # __Henna Styles__
 
 The past year of worldwide lockdowns has inspired many people to take up new hobbies and attempt beauty treatments at home,
- as they could no longer visit professionals. Henna Styles is an online henna shop and art community, which provides a range 
+ as they could no longer visit professionals. The popularity of tattoos has increased as well over the past years, which may 
+ motivate people to try temporary tattoos such as henna before commiting to a design. Seeing as henna is a safe and natural 
+ product it is also suitable for children.
+ Henna Styles is an online henna shop and art community, which provides a range 
  of henna products visitors can purchase as well as providing a platform for people interested in henna design to improve their
- abilities and learn from each other.
+ abilities and learn from each other.  
+
+ Deployed site: [HennaStyles](https://hennastyles.herokuapp.com/)
 
 - - - 
 
 ## __UX__
 
-### __Value provided:__
-#### __For users:__
+### __Value provided:__  
+Value provided to users is the ability to purchase a range of products quickly and easily. Another benefit for users 
+is the ability to interact with other artists which can lead to an improvement in their skills.
+Value provided to the siteowner is the ability to sell their products and view current trends users are interested in 
+through the posts in the community page, this will give them the ability to react to new trends faster and sell products 
+people are more likely to buy. Knowing about concerns/issues users may be having with the henna process or products can also 
+help store owners to make their product descriptions more clear and use them to address concerns about the products (eg. safety 
+concerns).
+### __User Stories:__
 - As a visitor with no previous experience with henna I would like to know more about it before purchasing.
 
 - As a new user I want guidance on how to use the products effectively
@@ -30,16 +42,12 @@ The past year of worldwide lockdowns has inspired many people to take up new hob
 
 
 ### __Wireframes__
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the 
-design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory),
- or just hosted elsewhere online and can be in any format that is viewable inside the browser.
  
 + [Home wireframe](documentation/wireframes/home-wrf-img.PNG)
 + [Shop wireframe](documentation/wireframes/shop-wrf-img.PNG)
 + [Community wireframe](documentation/wireframes/community-wrf-img.PNG)
-+ CHECKOUT view
-+ PROFILE view
-+ Add/Edit post view
++ [Checkout wireframe](documentation/wireframes/checkout-wrf.PNG)
++ [Profile wireframe](documentation/wireframes/profile-wrf.PNG)
 
 ### __Overall design__
 + In order to get an idea of the conventions of shopping/blog art sites I visited several online stores. The styling is simple
@@ -80,7 +88,7 @@ Sqlite was used to create the database in development and Heroku Postgres was us
         This part of the navigation bar is displayed in full on larger screens but toggles on small screens. 
         On small screens a home link is also displayed.
 - __Delivery banner__ reminds user of the free delivery limit, which may incentivise them to buy more.
-- __Pattern Borders__ decorate most pages, they are reminiscent of patterns created with henna and fits the site theme.
+- __Pattern Borders__ decorate most pages, they are reminiscent of patterns created with henna and fit the site theme.
 - Footer
     - Contains links to social media 
 - Toasts
@@ -152,7 +160,7 @@ been sent a confirmation email.
 - __Heading and intro__ thanks the user for their purchase and confirms the email their order confirmation has been sent to.
 - __Order summary__ shows all the order details including the order number, date, products purchased, delivery information and 
 billing information.
-- __Back to shop or community buttons__ guides the user to other parts of the site they can explore.
+- __Back to shop or community buttons__ guide the user to other parts of the site they can explore.
 - If users have logged in when making purchases they will be able to access old order confirmations through their profile page, 
 they are alerted through a toast that they are viewing a previous order. A link to go back to their profile page is also provided for these
 users.
@@ -214,16 +222,16 @@ post creator is allowed to edit the post so others can't tamper with their post.
  - __Python__ was used to write the logic for the app
  - __Javascript__ was used to add interactive features to components
  - __CSS__ was used to style the site
- - Django was used 
- - All Auth
+ - __Django__ was to create the project
+ - __Pylint for Django__ was used to check python code
+ - __-All Auth__ a feature of django is used to handle the authorisation process
  - __Stripe__ was used to handle payments for the store
  - __Heroku__ was used to host the deployed site.
  - __Heroku Postgres__ was used to hold database
  - __AWS__ was used to store website images and static files
  - __FontAwesome__ was used for it's icons throughout the site
  - __Googlefonts__ was used for the logo font and main site font
- - __Html validator__
- - Pylint for Django
+ - 
 
 ## __Testing__
 
@@ -235,14 +243,16 @@ result:
 ![CSS validator results](documentation/screenshots/css-validation.PNG)
 - I tested the javascript using the validator: [JSHint](https://jshint.com/) from products, checkout and bag apps. There were no warnings.
 - I tested the Python code using the validator: [PEP8](http://pep8online.com/). All files inside all apps of the project were tested.
-    result for all pages: ![PEP8 Result](documentation/screenshots/pep8-result.PNG)
+    result for all pages:  
+    ![PEP8 Result](documentation/screenshots/pep8-result.PNG)
 
 
 ### __Testing user stories are met__
 
 - As a visitor with no previous experience with henna I would like to know more about it before purchasing.
-    - The homepage will address this as soon as a visitor lands on the site. The homepage will contain a link to the community 
-    section and shop so visitors can find further information if they need to before they buy.
+    - The homepage will address this as soon as a visitor lands on the site, the image gives them an idea of 
+    what henna is and what it's used for. The homepage will contain a link to the community section and shop so visitors 
+    can find further information if they need to before they buy.  
     ![Homepage](documentation/screenshots/home.PNG)
 - As a new user I want guidance on how to use the products effectively
     - The community section will address this. People will be able to view henna related posts from other users or site owners and search for 
@@ -255,8 +265,8 @@ result:
     ways to locate the product you need quickly, including categories, subcategories and the product search bar.
     ![Products](documentation/screenshots/products.PNG)
 - As a user who has some previous interest in henna I want to know what I have purchased before so I can repurchase easily
-    - When making a purchase, customers can create an account which will hold their preferred shipping details and an order history. 
-    This will be available only by logging in when making a purchase.
+    - The profile page contains an order history, which will be avaliable to users who log in when making a purchase.
+    Logged in customers are also able to store their shipping details so repurchasing should be even faster.  
     ![Profile:order history](documentation/screenshots/profile-order-history.PNG)
 - As a professional user I want to see others work for inspiration
     - Community page will allow people to view others' work, however to gain the full effect of the community (respond to 
@@ -604,12 +614,12 @@ own posts.
         displayed.
 
 
-## Bugs
+## __Bugs__
 - When the project was originally created, an error was made when setting up the django project causing an extra file holding the 
 project to be created. This caused no issues during development however when I tried to deploy the project it was unsuccessful. 
 I spoke to a tutor about this who advised me to restart the whole project as it was likely this extra folder was causing the 
 issue. I restarted the project, moved the code and was able to deploy the site.
-### Fixed Bugs:
+### __Fixed Bugs:__
 - Checkout form save info function: When submitting the checkout page as an authenticated user, the user profile information 
     was being saved without the save info box being checked. I eventually found the problem in the checkout view where I was had 
     added used the wrong name for the save info checkbox (save_info instead of save-info) so the value wasn't being read. 
@@ -620,10 +630,15 @@ issue. I restarted the project, moved the code and was able to deploy the site.
     values is the same as the javascript used in the product detail page to perform the same function, where it is fully functional. 
     Users are able to set the value to below zero, however when they do the product is removed. They are also able to set the quantity 
     to over 99. I worked with a tutor to try to resolve this issue, however when using google developer tools to try to understand where 
-    the javascript was failing, but the issue remained unclear where the problem was coming from. I was advised by the tutor to list this 
+    the javascript was failing, but the issue remained unclear. I was advised by the tutor to list this 
     in the bugs section. 
     I added code to the javascript handling the increase button function, to try to disable it past a certain number which stopped the button
     affecting the number of the input after this value. The same code was used to disable the decrease button for values under 1.
+
+### Lighthouse Audit Results  
+![Lighthouse](documentation/screenshots/lighthouse.PNG)  
+The Results for the lighthouse audit are above. The main issue was with performance. Performance issues 
+A lot of the issues with loading time were coming from the images and static being loaded from amazon web services.
 
 ## __Deployment__
 
@@ -644,7 +659,7 @@ the command line:
     `pip3 install dj_database_url` and
     `pip3 install psycopg2-binary`
 
-4. freeze the requirements by typing:
+4. Freeze the requirements by typing:
     `pip3 freeze > requirements.txt`
     to ensure Heroku installs all the apps required for the project.
 
@@ -657,7 +672,7 @@ the command line:
 
 6. In the gitpod console, type `python3 manage.py migrate`, to make migrations in the postgress database.
 
-7. Next load fixtures to the data into the database by using the loaddata command in the gitpod command line. For 
+7. Next load fixtures into the database by using the loaddata command in the gitpod command line. For 
 this project:  
     `python3 manage.py loaddata categories`
     `python3 manage.py loaddata products`
@@ -746,7 +761,7 @@ to allow access for the whole site. Save the policy.
 10. In the Bucket's page, select the 'Access Control List'. Here find the public access section and set the 
 list objects permission for everyone.
 
-11. Next, go to the AWS Management console and select services, and find IAM and open.
+11. Next, go to the AWS Management console, select 'services', find IAM in services and open.
 
 12. Under Access management in the IAM menu, select Groups. Create a new group for the 
 project.
@@ -764,7 +779,7 @@ the policy you just created and attach it to the group.
 the group. Download the csv file avaliable when the user is successfully created, this contains the access keys for the 
 user and will not be avaliable for download later.
 
-17. Now in your gitpod workspace install packages: boto3 and django-storages and add to requiremnets file.
+17. Now in your gitpod workspace install packages: boto3 and django-storages and add to requiremnets file.  
     `pip3 install boto3`  
     `pip3 install django-storages`  
     `pip3 freeze > requirements.txt`  
@@ -807,15 +822,15 @@ public read access to them.
 26. Open stripe and find the publishable and secret keys and add them to your heroku app configuration variables.
 
 27. Back in Stripe, select the webhooks section and add a new endpoint for the deployed site. Next add the signin secret
-key products by stripe for the webhook to your Heroku configuration variables.
+key, produced by stripe for the webhook, to your Heroku configuration variables.
 
 ## __Credits__
 ### __Media :__ 
 [Pattern border used throughout site.](https://www.freepik.com/vectors/frame) by pch.vector on [freepik](https://www.freepik.com/)
 [Cone image on homepage](https://bluelotushenna.com/product/henna-cone-regular-1-oz/) by Blue Lotus Henna  
-[Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177) on [pixabay](https://pixabay.com/)
-[Home image](https://www.salongold.co.uk/wp-content/uploads/2019/04/henna-art-1920x1080.jpg)  
-Images from [pexels](https://www.pexels.com/):
+[Homepage buttons border](https://pixabay.com/vectors/frame-border-flourish-fancy-3166177/) by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3166177) on [pixabay](https://pixabay.com/)  
+[Home image](https://www.salongold.co.uk/wp-content/uploads/2019/04/henna-art-1920x1080.jpg)from Salon gold  
+Images from [pexels](https://www.pexels.com/):  
 [Paintbrush community post](https://www.pexels.com/photo/man-in-black-sunglasses-getting-a-henna-tattoo-3949271/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Darwin Alwan](https://www.pexels.com/@darwisalwan?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)  
 [Henna duration post image](https://www.pexels.com/photo/hands-tattooed-with-henna-4225869/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) by [Natalie](https://www.pexels.com/@natalie-320378?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
 
@@ -843,5 +858,5 @@ Images from [pexels](https://www.pexels.com/):
  [Henna powder for body art](https://images-na.ssl-images-amazon.com/images/I/81j6uy3tZ9L._AC_SX450_.jpg) from [Evena](https://www.amazon.co.uk/s?k=Evenea&ref=bl_dp_s_web_17365936031)  
 
 ### Acknowledgements
-I recieved inspiration for this project from 
+I recieved inspiration for this project from [Jackson art](https://www.jacksonsart.com/),[Desenio](https://desenio.co.uk/), [Henna Shop](https://www.hennashop.co.uk/).
 I recieved guidance and assistance from the CodeInstitute support team.

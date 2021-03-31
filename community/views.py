@@ -17,7 +17,7 @@ def view_posts(request):
 
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except:
+    except Exception:
         user = "AnonymousUser"
         messages.info(request, 'You need to log in to add comments/posts.')
 
@@ -52,7 +52,7 @@ def post_detail(request, post_id):
     """ View to show full post, comments and likes """
     try:
         user = get_object_or_404(UserProfile, user=request.user)
-    except:
+    except Exception:
         user = 'AnonymousUser'
     post = get_object_or_404(Post, id=post_id)
     comments = Comment.objects.filter(for_post=post)
