@@ -43,9 +43,9 @@ concerns).
 
 ### __Wireframes__
  
-+ [Home wireframe](documentation/wireframes/home-wrf-img.PNG)
-+ [Shop wireframe](documentation/wireframes/shop-wrf-img.PNG)
-+ [Community wireframe](documentation/wireframes/community-wrf-img.PNG)
++ [Home wireframe](documentation/wireframes/home-wireframe.PNG)
++ [Shop wireframe](documentation/wireframes/shop-wireframe.PNG)
++ [Community wireframe](documentation/wireframes/community-wireframe.PNG)
 + [Checkout wireframe](documentation/wireframes/checkout-wrf.PNG)
 + [Profile wireframe](documentation/wireframes/profile-wrf.PNG)
 
@@ -231,7 +231,6 @@ post creator is allowed to edit the post so others can't tamper with their post.
  - __AWS__ was used to store website images and static files
  - __FontAwesome__ was used for it's icons throughout the site
  - __Googlefonts__ was used for the logo font and main site font
- - 
 
 ## __Testing__
 
@@ -303,7 +302,7 @@ result:
     Each category link displayed a dropdown of subcategories when pressed, I pressed the link for each subcategory and the product results 
     adjusted correctly based on the subcategory.
     - Functionality: After logging in:
-    I clicked on the account button, where the links displayed were "My Profile" and "Logout", both when selected led to the correct page.
+    I clicked on the account button, where the links displayed were "My Profile" and "Logout", both when selected led to the correct page.  
     -Responsive design:
     The toggle button displayed on smaller screen widths, produced the products nagivation when pressed and all links were functional.
 
@@ -322,29 +321,30 @@ result:
     - __Responsive design:__ The buttons stacked on mobile screens and where displayed side by side on tablet and laptop.
     
 ### Products page
-- __Sorting dropdown selector__ to test this I selected each option from the product sorting drop down to see the results.
+- __Sorting dropdown selector__ to test this I selected each option from the product sorting drop down to see the results.  
     -__Functionality:__ The sorting worked for all of the sorting options (price, category and name). The results were organised
     as selected. The selector was functional no matter what the category of products currently being displayed where or when the product results 
     were from a search query. The 'product home' button appeared as expected when product sorting or filtering had taken place and 
-    reset the product page when pressed.
-- __Product Results__ 
+    reset the product page when pressed.  
+- __Product Results__  
     -__Functionality:__ was tested by ensuring all product information was appearing correctly. I pressed the link to the product 
     category under each product which led to the products page, displaying all products in that category. I pressed on the product
-    image which led to the product's details page.
+    image which led to the product's details page.  
     -__Responsive Design:__ I viewed the products page on different screen sizes. The products appeared in a row of four on extra large
         screens, three in a row on laptops, two on tablets and one per row on mobile screens. 
 - __Edit delete buttons for superuser__ to test this I logged into the site as a superuser, the products edit/delete links were under
     all the products and led to the edit page for that product with the information prefilled. I added a test product and was able to 
     delete it using the delete link.
 
-- __Product Details__ to test this I repeated the procedure below with a product with no colour options and one with colour option.
-    - __Large product image and product details__ 
-        -__Functionality:__ I pressed the image which opened up the image in a new tab.
+### __Product Details Page__  
+    To test this I repeated the procedure below with a product with no colour options and one with colour option.  
+    - __Large product image and product details__  
+        -__Functionality:__ I pressed the image which opened up the image in a new tab.  
         -__Responsive Design:__ Product image displayed well on all screen sizes, maintaining the ability of users to see finer
         product details. Image stacked over product details on smaller screens and was displayed beside them on tablet screens and
-         above.
-    - __Quanity selector__ 
-        - __Functionality:__ 
+         above.  
+    - __Quanity selector__  
+        - __Functionality:__  
             - I pressed the minus button on the quantity form when the current number was one, to ensure a quantity of 0 couldnt be set by the selector, 
             the quantity didn't change.
             - I pressed the increase button and the quantity went up.
@@ -365,11 +365,12 @@ result:
         - __Functionality__: 
             - I pressed this button, a toast appeared at the shopping bag icon in the navigation alerting me the product had been
             added to my shopping bag and a summary of the bag was also shown with the correct product and quanity/colour specifications inside. 
-    - __Keep Shopping button__:
-        -__Functionality__:
-            - I pressed this button and was directed back to the products homepage.
+    - __Keep Shopping button__:  
+        -__Functionality__:  
+            - I pressed this button and was directed back to the products homepage.  
 
-- __Add products__ this page is only avaliable to superusers.
+### __Add products__  
+    This page is only avaliable to superusers.  
     - __Security:__
         - To ensure the page is secure, I tried to access the page as an anonymous user by typing the correct url, this led me to the 
         sign in page. I signed in with a user who is not a superuser and I was directed to the homepage with a message saying "Sorry,
@@ -409,12 +410,12 @@ result:
     - __Functionality:__
     - I changed the quantity of one of the products and pressed the update link below the product, a popup toast 
     appeared notifying me that the item quantity had been changed. The quantity input value had changed and the shopping bag
-    total asjusted accordingly.
+    total adjusted accordingly.
     - The input was set at one and I pressed the minus button to try to reduce the quantity, the value stayed at one, as planned.
     - I set the value of the input to 99 and pressed the plus button, the value stayed at 99, as expected.
     - I pressed the remove link under one of the products and a pop up appeared notifying me that the item had been removed, the
     product was no longer on the shopping bag page and the total value adjusted correctly.
-- __Secure Checkout button__ 
+- __Secure Checkout button__  
     -__Functionality__:
     - I pressed the checkout button with one item in the shopping bag and was directed to the checkout page with the relevant 
     product in the order summary.
@@ -425,7 +426,7 @@ result:
     - On large screens the page is divided into two columns with the checkout form on the left and an order summary on the right. 
     On smaller screens the order summary is stacked above the checkout form so users will see their bag before completing the 
     purchase.
-- __Order Summary:__ 
+- __Order Summary:__   
     -__Functionality:__
      - I checked whether all the information shown on the order summary was correct including product information and checkout 
      totals. All the information was the same as in the shopping bag I had just created.
@@ -441,7 +442,7 @@ result:
         with an order summary for that order. I then checked the order had been created in the database.
         - I filled the form with all requried field and valid card number and pressed the checkout button, then closed the page 
         immediately before the checkout success page could load. This should not be an issue as the order should be created by the
-        webhook set up with stripe. I reopened the site and checked the admin, the order was successfully added.
+        webhook set up with stripe. I reopened the site and checked the admin, the order was successfully added.  
 -__Delivery information__:
     - As a logged in user with no previous purchase:
         - The form was empty when loaded, I filled in the required fields and completed the purchase unchecking the save info box 
@@ -452,8 +453,8 @@ result:
     - As a logged in user with a previous purchase:
         The delivery information was prefilled based on what I had entered for the previous purchase.
     - As an anonymous user:
-        The form was empty and a link appeared below asking me if I want to register or login to save the information.
--__Stripe__: only currently functional with the test card number provided by stripe.
+        The form was empty and a link appeared below asking me if I want to register or login to save the information.  
+-__Stripe__: only currently functional with the test card number provided by stripe.  
     - __Functionality__: 
         - I filled in the form with all valid information and the test card number from stripe which requires no further authentication.
         I submitted the form and checked the stripe website to see whether a webhook had been sent. I could see that the payment intent
@@ -493,13 +494,13 @@ result:
     - __Responsive Design:__
         Posts appear three in a row on large screens, two in a row on tablets and stacked on mobile view. This is to ensure the 
         text remains readable on all screen sizes.
-    - __Search posts__: functionality is the same for authorised or anonymous users.
+    - __Search posts__: functionality is the same for authorised or anonymous users.  
         -__Functionality__:
          - I typed the word 'cones', which appears in one post, into the search bar and checked to see the resulting post had the 
          word included. The reset search button appeared and when pressed led to the main community page.
          - I typed the word 'henna', which appears in two posts, into the search bar and checked to see the correct posts were 
          displayed. 
-    - __Add Post button__:
+    - Add Post button:
         - __Functionality:__as an anonymous user
             - I selected the Add Post button and was redirected to the login page.
         - __Functionality:__as an authenticated user
