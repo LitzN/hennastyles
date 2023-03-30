@@ -1,1 +1,0 @@
-web: gunicorn hennastyles.wsgi:application

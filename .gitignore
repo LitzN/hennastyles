@@ -2,7 +2,7 @@ core.Microsoft*
 core.mongo*
 core.python*
 env.py
-*.sqlite3
+.env
 *.pyc
 __pycache__/
 *.py[cod]
