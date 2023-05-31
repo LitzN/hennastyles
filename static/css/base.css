@@ -8,7 +8,8 @@ html{
 }
 
 body{
-    height:calc(100vh - 164px);
+    height:100%;
+    overflow-x:hidden;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -160,21 +161,20 @@ body{
 .home-img{
     background: url('/media/henna-art.jpg') no-repeat center;
     background-size:cover;
-    min-height:30vh;
+    min-height:35vh;
     min-width:100vw;
 }
 
-.button-shop{
-    background: url('/media/button-shop.png') no-repeat;
-    background-size:contain;
+.home-buttons{
     min-height:20rem;
-    position: relative;
+}
+
+.button-shop{
+    background: url('/media/button-shop.png') center/contain no-repeat;
 }
 
 .button-subscribe{
-    background: url('/media/button-sub.png') no-repeat;
-    background-size:contain;
-    min-height:20rem;
+    background: url('/media/button-sub.png') center/contain no-repeat;
 }
 
 /*---Product pages----*/
@@ -294,9 +294,6 @@ a.category-badge > span.badge:hover{
 /*------SMALL MOBILE------------*/
 @media (max-width:321px){
 
-    .product-buffer{
-        min-height:6rem;
-    }
 }
 
 /* mobile styling*/
@@ -312,10 +309,6 @@ a.category-badge > span.badge:hover{
 
     .welcome-text{
         font-size:1rem;
-    }
-
-    .product-buffer{
-        min-height:7rem;
     }
 
     .prod-links{
@@ -341,11 +334,6 @@ a.category-badge > span.badge:hover{
 
 /*-----TABLET--------------*/
 @media (min-width:427px) and (max-width: 768px){
-
-    .product-buffer{
-        min-height:9rem;
-    }
-
     .logo-text{
         font-size:2rem;
     }
@@ -356,23 +344,13 @@ a.category-badge > span.badge:hover{
 }
 /*-----LAPTOP---------------*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-      .button-center{
-    padding-left:4rem;
-}
 
     .header-container {
         padding-top: 164px;
     }
 
-    .product-buffer{
-    min-height:10rem;
+    .nav-link{
+        padding:0 !important;
     }
 }
 
@@ -382,7 +360,4 @@ a.category-badge > span.badge:hover{
     max-width: 80%;
   }
 
-  .product-buffer{
-      min-height:10rem;
-  }
 }
